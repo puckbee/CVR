@@ -1,5 +1,5 @@
 # CVR
-Parallelized and vectorized SpMV on Intel Xeon Phi (Knights Landing)
+Parallelized and vectorized SpMV on Intel Xeon Phi (Knights Landing). 
 This is the artifact of our CGO'2018 paper [ CVR: Efficient SpMV Vectorization on X86 Processors ].
 
 # Build
