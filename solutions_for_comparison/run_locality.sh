@@ -4,6 +4,9 @@
 
 filepath=$1
 
+  if [ ! -d "../dataset" ]; then  
+    mkdir "../dataset"  
+  fi  
 if [ ! -f $filepath ]; then
    wget https://sparse.tamu.edu/MM/SNAP/web-Google.tar.gz
    tar xvf web-Google.tar.gz
