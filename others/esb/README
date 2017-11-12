@@ -1,0 +1,176 @@
+-------------------------------------------------------------------------------
+                        Intel(R) Math Kernel Library
+           Sparse Matrix Vector Multiply Format Prototype Package
+               (Intel(R) MKL SpMV Format Prototype Package),
+                                version 0.2 Alpha
+                                   README
+-------------------------------------------------------------------------------
+Introduction
+-------------------------------------------------------------------------------
+This package supports only general, non-transposed SpMV functionality on 
+Intel(R) Xeon Phi(TM) coprocessors. A sparse matrix in this implementation is 
+stored in a structure (handle). This approach allows us to investigate the 
+input matrix only once, in the stage of creation of the internal matrix 
+representation, and the results of the investigation are available for further 
+calls. This package supports two sparse formats: ESB and CSR, and for both 
+formats an internal matrix representation can be created from the external 
+CSR matrix.
+ 
+Note: Actually the input sparse matrix is duplicated in the internal structure. 
+
+In addition, several static and dynamic balancing strategies are supported in 
+this package. They can be chosen on the stage of matrix analysis because they 
+use inconsiderably different algorithms and structures for workload balancing.
+
+-------------------------------------------------------------------------------
+License Acceptance
+-------------------------------------------------------------------------------
+
+Please review the license.txt file. To accept the end user license 
+agreement, unzip the included file sparse_mv_ext.zip with the command:
+ 
+>unzip sparse_mv_ext.zip
+
+and type "accept" when prompted.
+
+-------------------------------------------------------------------------------
+Product Directories
+-------------------------------------------------------------------------------
+
+The following directory map indicates the structure of the Intel(R) MKL SpMV 
+Format Prototype Package directory:
+
+__release_lnx
+    |
+    +---benchmark
+    |   | 
+    |   +---matrices
+    |   |
+    |   +---src
+    |
+    +---doc
+    |
+    +---examples
+    |
+    +---include
+    |
+    +---lib
+        |
+        +---mic
+        |
+        +---intel64
+
+-------------------------------------------------------------------------------
+Getting Started
+-------------------------------------------------------------------------------
+
+===============================================================================
+ATTENTION: It is recommended to define the Shell variable "export
+SPMVEXTROOT="path to this directory"/__release_lnx.
+===============================================================================
+
+
+LIBRARY_PATH:
+              $(SPMVEXTROOT)/lib
+
+INCLUDE_PATH:
+              $(SPMVEXTROOT)/include
+
+COMPILATION LINKS:
+            $(LIBRARY_PATH)/libmkl_spmv_pkg.a
+
+EXAMPLES:
+
+    To run examples, please go to $(SPMVEXTROOT)/examples directory. 
+    The spmv_new.c file demonstrates the implemented functionality.
+    To build an example, set the proper compiler environment and 
+    perform these make commands:  
+      1.        make clean  - clean the workspace
+      2.        make build  -  create the executable file
+      3.        make execute  - run the executable on the Intel Xeon Phi 
+                                coprocessor mic0 by default
+
+PERFORMANCE BENCHMARKING:
+
+    To run benchmark, please go to $(SPMVEXTROOT)/benchmark directory.
+    Sources of the benchmark are placed in ./src folder. The benchmark
+    is reported also Intel MKL dcsrgemv performance results, so it 
+    depends on MKL libraries. To build executable, set the proper compiler 
+    environment, then set path to MKL:
+        export MKLROOT=<PATH_TO_MKL>/__release_lnx/mkl 
+    and perform the following make commands:  
+      1.        make clean  - clean the workspace
+      2.        make build  - create the executable file
+    Use ./run_host.sh script to run executable file on the card.
+    It uploads executable, input matrix and required library to the card,
+    setups proper environment variables and downloads result to the 
+    ./results folder. Variables in this script define sparse matrix and 
+    card parameters for testing. They have the following values by default:
+    export MATRIX_PATH=./matrices - path to input matrices on the disk
+    export MATRICES=G41.mtx       - matrix name in Matrix Market format
+    export DEVICE=mic0            - name of the card
+    export BASEDIR=/tmp           - path to the sandbox on the card
+
+-------------------------------------------------------------------------------
+Disclaimer and Legal Information
+-------------------------------------------------------------------------------
+
+INFORMATION IN THIS DOCUMENT IS PROVIDED IN CONNECTION WITH INTEL(R)
+PRODUCTS. NO LICENSE, EXPRESS OR IMPLIED, BY ESTOPPEL OR OTHERWISE, TO
+ANY INTELLECTUAL PROPERTY RIGHTS IS GRANTED BY THIS DOCUMENT.  EXCEPT
+AS PROVIDED IN INTEL'S TERMS AND CONDITIONS OF SALE FOR SUCH PRODUCTS,
+INTEL ASSUMES NO LIABILITY WHATSOEVER, AND INTEL DISCLAIMS ANY EXPRESS
+OR IMPLIED WARRANTY, RELATING TO SALE AND/OR USE OF INTEL PRODUCTS
+INCLUDING LIABILITY OR WARRANTIES RELATING TO FITNESS FOR A PARTICULAR
+PURPOSE, MERCHANTABILITY, OR INFRINGEMENT OF ANY PATENT, COPYRIGHT OR
+OTHER INTELLECTUAL PROPERTY RIGHT.  UNLESS OTHERWISE AGREED IN WRITING
+BY INTEL, THE INTEL PRODUCTS ARE NOT DESIGNED NOR INTENDED FOR ANY
+APPLICATION IN WHICH THE FAILURE OF THE INTEL PRODUCT COULD CREATE A
+SITUATION WHERE PERSONAL INJURY OR DEATH MAY OCCUR.
+
+Intel may make changes to specifications and product descriptions at
+any time, without notice. Designers must not rely on the absence or
+characteristics of any features or instructions marked "reserved" or
+"undefined." Intel reserves these for future definition and shall have
+no responsibility whatsoever for conflicts or incompatibilities
+arising from future changes to them. The information here is subject
+to change without notice. Do not finalize a design with this
+information.
+
+The products described in this document may contain design defects or
+errors known as errata which may cause the product to deviate from
+published specifications. Current characterized errata are available
+on request.
+
+Contact your local Intel sales office or your distributor to obtain
+the latest specifications and before placing your product order.
+Copies of documents which have an order number and are referenced in
+this document, or other Intel literature, may be obtained by calling
+1-800-548-4725, or by visiting Intel's Web Site, located at
+http://www.intel.com/.
+
+Intel processor numbers are not a measure of performance. Processor
+numbers differentiate features within each processor family, not
+across different processor families. See
+http://www.intel.com/products/processor_number for details.
+
+This document contains information on products in the design phase of 
+development.
+
+BunnyPeople, Celeron, Celeron Inside, Centrino, Centrino Atom,
+Centrino Atom Inside, Centrino Inside, Centrino logo, Core Inside,
+FlashFile, i960, InstantIP, Intel, Intel logo, Intel386, Intel486,
+IntelDX2, IntelDX4, IntelSX2, Intel Atom, Intel Atom Inside, Intel
+Core, Intel Inside, Intel Inside logo, Intel. Leap ahead., Intel. Leap
+ahead.  logo, Intel NetBurst, Intel NetMerge, Intel NetStructure,
+Intel SingleDriver, Intel SpeedStep, Intel StrataFlash, Intel Viiv,
+Intel vPro, XScale, IPLink, Itanium, Itanium Inside, MCS, MMX, Oplus,
+OverDrive, Intel PDCharm, Pentium, Pentium Inside, skoool, Sound Mark,
+The Journey Inside, VTune, Xeon, and Xeon Inside are trademarks of
+Intel Corporation in the U.S. and other countries.
+
+
+* Other names and brands may be claimed as the property of others.
+
+Copyright (C) 2013, Intel Corporation. All rights reserved.
+

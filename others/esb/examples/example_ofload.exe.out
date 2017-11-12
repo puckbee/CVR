@@ -1,0 +1,40 @@
+
+ Offload EXAMPLE PROGRAM FOR sparseDcsrmv and sparseDesbmv 
+---------------------------------------------------
+
+   INPUT DATA FOR sparseDcsrmv    
+   WITH GENERAL SPARSE MATRIX     
+   ALPHA =  1.0  BETA =  0.0    
+   SPARSE_OPERATION_NON_TRANSPOSE 
+   Input vector                   
+    1.0
+    5.0
+    1.0
+    4.0
+    1.0
+                                
+   OUTPUT DATA FOR sparseDcsrmv 
+  -16.0
+   23.0
+   32.0
+   26.0
+   35.0
+-----------------------------------------------
+   INPUT DATA FOR sparseDesbmv    
+   WITH GENERAL SPARSE MATRIX     
+   ALPHA =  1.0  BETA =  0.0    
+   SPARSE_OPERATION_NON_TRANSPOSE 
+   Input vector                   
+    1.0
+    5.0
+    1.0
+    4.0
+    1.0
+                               
+   OUTPUT DATA FOR sparseDesbmv
+  -16.0
+   23.0
+   32.0
+   26.0
+   35.0
+---------------------------------------------------

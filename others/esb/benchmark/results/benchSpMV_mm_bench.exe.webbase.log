@@ -1,0 +1,322 @@
+Double-precision SpMV performance benchmark for 
+ Intel(R) MKL SpMV Format Prototype Package, version 0.2
+Input file: /tmp/webbase
+Reading matrix completed
+ cols[0]= 1, vals[0]=1.000000
+ cols[1]= 2, vals[1]=1.000000
+ cols[2]= 3, vals[2]=1.000000
+ cols[3]= 4, vals[3]=1.000000
+ cols[4]= 8159, vals[4]=1.000000
+ cols[5]= 8188, vals[5]=1.000000
+ cols[6]= 4, vals[6]=1.000000
+ cols[7]= 5, vals[7]=1.000000
+ cols[8]= 4, vals[8]=1.000000
+ cols[9]= 6, vals[9]=1.000000
+ cols[10]= 7, vals[10]=1.000000
+ cols[11]= 8, vals[11]=1.000000
+ cols[12]= 9, vals[12]=1.000000
+ cols[13]= 10, vals[13]=1.000000
+ cols[14]= 5386, vals[14]=1.000000
+ cols[15]= 8048, vals[15]=1.000000
+ cols[16]= 13167, vals[16]=1.000000
+ cols[17]= 19425, vals[17]=1.000000
+ cols[18]= 19430, vals[18]=1.000000
+ cols[19]= 20860, vals[19]=1.000000
+ cols[20]= 47046, vals[20]=1.000000
+ cols[21]= 135379, vals[21]=1.000000
+ cols[22]= 338646, vals[22]=1.000000
+ cols[23]= 353916, vals[23]=1.000000
+ cols[24]= 354467, vals[24]=1.000000
+ cols[25]= 10, vals[25]=1.000000
+ cols[26]= 11, vals[26]=1.000000
+ cols[27]= 12, vals[27]=1.000000
+ cols[28]= 13, vals[28]=1.000000
+ cols[29]= 14, vals[29]=1.000000
+ cols[30]= 15, vals[30]=1.000000
+ cols[31]= 16, vals[31]=1.000000
+ cols[32]= 17, vals[32]=1.000000
+ cols[33]= 18, vals[33]=1.000000
+ cols[34]= 233, vals[34]=1.000000
+ cols[35]= 234, vals[35]=1.000000
+ cols[36]= 235, vals[36]=1.000000
+ cols[37]= 236, vals[37]=1.000000
+ cols[38]= 263, vals[38]=1.000000
+ cols[39]= 264, vals[39]=1.000000
+ cols[40]= 265, vals[40]=1.000000
+ cols[41]= 401, vals[41]=1.000000
+ cols[42]= 402, vals[42]=1.000000
+ cols[43]= 403, vals[43]=1.000000
+ cols[44]= 711, vals[44]=1.000000
+ cols[45]= 712, vals[45]=1.000000
+ cols[46]= 713, vals[46]=1.000000
+ cols[47]= 714, vals[47]=1.000000
+ cols[48]= 715, vals[48]=1.000000
+ cols[49]= 867, vals[49]=1.000000
+ cols[50]= 868, vals[50]=1.000000
+ cols[51]= 869, vals[51]=1.000000
+ cols[52]= 870, vals[52]=1.000000
+ cols[53]= 1039, vals[53]=1.000000
+ cols[54]= 1040, vals[54]=1.000000
+ cols[55]= 1041, vals[55]=1.000000
+ cols[56]= 1042, vals[56]=1.000000
+ cols[57]= 1389, vals[57]=1.000000
+ cols[58]= 2088, vals[58]=1.000000
+ cols[59]= 2089, vals[59]=1.000000
+ cols[60]= 2090, vals[60]=1.000000
+ cols[61]= 2091, vals[61]=1.000000
+ cols[62]= 2092, vals[62]=1.000000
+ cols[63]= 2093, vals[63]=1.000000
+ cols[64]= 2094, vals[64]=1.000000
+ cols[65]= 2095, vals[65]=1.000000
+ cols[66]= 2096, vals[66]=1.000000
+ cols[67]= 2097, vals[67]=1.000000
+ cols[68]= 2098, vals[68]=1.000000
+ cols[69]= 2099, vals[69]=1.000000
+ cols[70]= 2100, vals[70]=1.000000
+ cols[71]= 2101, vals[71]=1.000000
+ cols[72]= 2102, vals[72]=1.000000
+ cols[73]= 2465, vals[73]=1.000000
+ cols[74]= 7802, vals[74]=1.000000
+ cols[75]= 9151, vals[75]=1.000000
+ cols[76]= 9152, vals[76]=1.000000
+ cols[77]= 9153, vals[77]=1.000000
+ cols[78]= 9915, vals[78]=1.000000
+ cols[79]= 9916, vals[79]=1.000000
+ cols[80]= 9917, vals[80]=1.000000
+ cols[81]= 10563, vals[81]=1.000000
+ cols[82]= 10926, vals[82]=1.000000
+ cols[83]= 10927, vals[83]=1.000000
+ cols[84]= 10928, vals[84]=1.000000
+ cols[85]= 10929, vals[85]=1.000000
+ cols[86]= 10930, vals[86]=1.000000
+ cols[87]= 10931, vals[87]=1.000000
+ cols[88]= 10932, vals[88]=1.000000
+ cols[89]= 10933, vals[89]=1.000000
+ cols[90]= 10934, vals[90]=1.000000
+ cols[91]= 10935, vals[91]=1.000000
+ cols[92]= 11509, vals[92]=1.000000
+ cols[93]= 11510, vals[93]=1.000000
+ cols[94]= 11511, vals[94]=1.000000
+ cols[95]= 11512, vals[95]=1.000000
+ cols[96]= 11513, vals[96]=1.000000
+ cols[97]= 11514, vals[97]=1.000000
+ cols[98]= 11515, vals[98]=1.000000
+ cols[99]= 11516, vals[99]=1.000000
+ cols[100]= 11835, vals[100]=1.000000
+ cols[101]= 11836, vals[101]=1.000000
+ cols[102]= 11837, vals[102]=1.000000
+ cols[103]= 16782, vals[103]=1.000000
+ cols[104]= 18378, vals[104]=1.000000
+ cols[105]= 18379, vals[105]=1.000000
+ cols[106]= 18380, vals[106]=1.000000
+ cols[107]= 18381, vals[107]=1.000000
+ cols[108]= 18382, vals[108]=1.000000
+ cols[109]= 18383, vals[109]=1.000000
+ cols[110]= 18384, vals[110]=1.000000
+ cols[111]= 18385, vals[111]=1.000000
+ cols[112]= 18386, vals[112]=1.000000
+ cols[113]= 20189, vals[113]=1.000000
+ cols[114]= 22002, vals[114]=1.000000
+ cols[115]= 22291, vals[115]=1.000000
+ cols[116]= 22608, vals[116]=1.000000
+ cols[117]= 23147, vals[117]=1.000000
+ cols[118]= 23521, vals[118]=1.000000
+ cols[119]= 24343, vals[119]=1.000000
+ cols[120]= 24344, vals[120]=1.000000
+ cols[121]= 24345, vals[121]=1.000000
+ cols[122]= 24346, vals[122]=1.000000
+ cols[123]= 24347, vals[123]=1.000000
+ cols[124]= 24348, vals[124]=1.000000
+ cols[125]= 24350, vals[125]=1.000000
+ cols[126]= 24351, vals[126]=1.000000
+ cols[127]= 24352, vals[127]=1.000000
+ cols[128]= 24353, vals[128]=1.000000
+ cols[129]= 24354, vals[129]=1.000000
+ cols[130]= 24355, vals[130]=1.000000
+ cols[131]= 28542, vals[131]=1.000000
+ cols[132]= 29413, vals[132]=1.000000
+ cols[133]= 29633, vals[133]=1.000000
+ cols[134]= 30673, vals[134]=1.000000
+ cols[135]= 30674, vals[135]=1.000000
+ cols[136]= 30675, vals[136]=1.000000
+ cols[137]= 37584, vals[137]=1.000000
+ cols[138]= 38030, vals[138]=1.000000
+ cols[139]= 38581, vals[139]=1.000000
+ cols[140]= 39551, vals[140]=1.000000
+ cols[141]= 40368, vals[141]=1.000000
+ cols[142]= 40675, vals[142]=1.000000
+ cols[143]= 41300, vals[143]=1.000000
+ cols[144]= 45252, vals[144]=1.000000
+ cols[145]= 45529, vals[145]=1.000000
+ cols[146]= 45707, vals[146]=1.000000
+ cols[147]= 45919, vals[147]=1.000000
+ cols[148]= 46155, vals[148]=1.000000
+ cols[149]= 47821, vals[149]=1.000000
+ cols[150]= 47975, vals[150]=1.000000
+ cols[151]= 48330, vals[151]=1.000000
+ cols[152]= 48576, vals[152]=1.000000
+ cols[153]= 48949, vals[153]=1.000000
+ cols[154]= 49620, vals[154]=1.000000
+ cols[155]= 49749, vals[155]=1.000000
+ cols[156]= 10, vals[156]=1.000000
+ cols[157]= 12, vals[157]=1.000000
+ cols[158]= 17, vals[158]=1.000000
+ cols[159]= 236, vals[159]=1.000000
+ cols[160]= 10, vals[160]=1.000000
+ cols[161]= 12, vals[161]=1.000000
+ cols[162]= 13, vals[162]=1.000000
+ cols[163]= 17, vals[163]=1.000000
+ cols[164]= 234, vals[164]=1.000000
+ cols[165]= 235, vals[165]=1.000000
+ cols[166]= 236, vals[166]=1.000000
+ cols[167]= 263, vals[167]=1.000000
+ cols[168]= 264, vals[168]=1.000000
+ cols[169]= 265, vals[169]=1.000000
+ cols[170]= 1040, vals[170]=1.000000
+ cols[171]= 1041, vals[171]=1.000000
+ cols[172]= 10, vals[172]=1.000000
+ cols[173]= 12, vals[173]=1.000000
+ cols[174]= 13, vals[174]=1.000000
+ cols[175]= 14, vals[175]=1.000000
+ cols[176]= 15, vals[176]=1.000000
+ cols[177]= 16, vals[177]=1.000000
+ cols[178]= 17, vals[178]=1.000000
+ cols[179]= 18, vals[179]=1.000000
+ cols[180]= 19, vals[180]=1.000000
+ cols[181]= 233, vals[181]=1.000000
+ cols[182]= 234, vals[182]=1.000000
+ cols[183]= 235, vals[183]=1.000000
+ cols[184]= 236, vals[184]=1.000000
+ cols[185]= 263, vals[185]=1.000000
+ cols[186]= 264, vals[186]=1.000000
+ cols[187]= 265, vals[187]=1.000000
+ cols[188]= 401, vals[188]=1.000000
+ cols[189]= 402, vals[189]=1.000000
+ cols[190]= 403, vals[190]=1.000000
+ cols[191]= 711, vals[191]=1.000000
+ cols[192]= 712, vals[192]=1.000000
+ cols[193]= 713, vals[193]=1.000000
+ cols[194]= 714, vals[194]=1.000000
+ cols[195]= 715, vals[195]=1.000000
+ cols[196]= 867, vals[196]=1.000000
+ cols[197]= 868, vals[197]=1.000000
+ cols[198]= 869, vals[198]=1.000000
+ cols[199]= 870, vals[199]=1.000000
+ cols[200]= 1039, vals[200]=1.000000
+ cols[201]= 1040, vals[201]=1.000000
+ cols[202]= 1041, vals[202]=1.000000
+ cols[203]= 1042, vals[203]=1.000000
+ cols[204]= 1389, vals[204]=1.000000
+ cols[205]= 2088, vals[205]=1.000000
+ cols[206]= 2089, vals[206]=1.000000
+ cols[207]= 2090, vals[207]=1.000000
+ cols[208]= 2091, vals[208]=1.000000
+ cols[209]= 2092, vals[209]=1.000000
+ cols[210]= 2093, vals[210]=1.000000
+ cols[211]= 2094, vals[211]=1.000000
+ cols[212]= 2095, vals[212]=1.000000
+ cols[213]= 2096, vals[213]=1.000000
+ cols[214]= 2097, vals[214]=1.000000
+ cols[215]= 2098, vals[215]=1.000000
+ cols[216]= 2099, vals[216]=1.000000
+ cols[217]= 2100, vals[217]=1.000000
+ cols[218]= 2101, vals[218]=1.000000
+ cols[219]= 2102, vals[219]=1.000000
+ cols[220]= 2465, vals[220]=1.000000
+ cols[221]= 7802, vals[221]=1.000000
+ cols[222]= 9151, vals[222]=1.000000
+ cols[223]= 9152, vals[223]=1.000000
+ cols[224]= 9153, vals[224]=1.000000
+ cols[225]= 9915, vals[225]=1.000000
+ cols[226]= 9916, vals[226]=1.000000
+ cols[227]= 9917, vals[227]=1.000000
+ cols[228]= 10563, vals[228]=1.000000
+ cols[229]= 10926, vals[229]=1.000000
+ cols[230]= 10927, vals[230]=1.000000
+ cols[231]= 10928, vals[231]=1.000000
+ cols[232]= 10929, vals[232]=1.000000
+ cols[233]= 10930, vals[233]=1.000000
+ cols[234]= 10931, vals[234]=1.000000
+ cols[235]= 10932, vals[235]=1.000000
+ cols[236]= 10933, vals[236]=1.000000
+ cols[237]= 10934, vals[237]=1.000000
+ cols[238]= 10935, vals[238]=1.000000
+ cols[239]= 11509, vals[239]=1.000000
+ cols[240]= 11510, vals[240]=1.000000
+ cols[241]= 11511, vals[241]=1.000000
+ cols[242]= 11512, vals[242]=1.000000
+ cols[243]= 11513, vals[243]=1.000000
+ cols[244]= 11514, vals[244]=1.000000
+ cols[245]= 11515, vals[245]=1.000000
+ cols[246]= 11516, vals[246]=1.000000
+ cols[247]= 11835, vals[247]=1.000000
+ cols[248]= 11836, vals[248]=1.000000
+ cols[249]= 11837, vals[249]=1.000000
+ cols[250]= 16782, vals[250]=1.000000
+ cols[251]= 18378, vals[251]=1.000000
+ cols[252]= 18379, vals[252]=1.000000
+ cols[253]= 18380, vals[253]=1.000000
+ cols[254]= 18381, vals[254]=1.000000
+ cols[255]= 18382, vals[255]=1.000000
+Operation COO->CSR completed
+Number of OMP threads: 240
+Sparse matrix info:
+       rows: 1000005
+       cols: 1000005
+       nnz:  3105536
+Validation PASSED
+MKL SpMV performance results:
+   SpMV GFlop/s: 2.228837
+   SpMV time:    0.002787
+ y_ref[0] = 0.000000
+ y_ref[16] = 131.000000
+ y_ref[32] = 3.000000
+ y_ref[48] = 11.000000
+ y_ref[64] = 9.000000
+ y_ref[80] = 10.000000
+ y_ref[96] = 1.000000
+ y_ref[112] = 3.000000
+ y_ref[128] = 2.000000
+ y_ref[144] = 5.000000
+ y_ref[160] = 37.000000
+ y_ref[176] = 10.000000
+ y_ref[192] = 2.000000
+ y_ref[208] = 4.000000
+ y_ref[224] = 4.000000
+ y_ref[240] = 2.000000
+ before the end of MKL
+Validation PASSED
+Warning: measured time is less than 0.5 sec: 0.001480
+Measured results could be unstable
+CSR SpMV performance results:
+   SpMV GFlop/s: 4.196511
+   SpMV time:    0.001480
+   schedule:     static
+Validation PASSED
+Warning: measured time is less than 0.5 sec: 0.001187
+Measured results could be unstable
+CSR SpMV performance results:
+   SpMV GFlop/s: 5.231726
+   SpMV time:    0.001187
+   schedule:     dynamic
+Validation PASSED
+Warning: measured time is less than 0.5 sec: 0.001407
+Measured results could be unstable
+CSR SpMV performance results:
+   SpMV GFlop/s: 4.413034
+   SpMV time:    0.001407
+   schedule:     block
+Validation PASSED
+Warning: measured time is less than 0.5 sec: 0.000821
+Measured results could be unstable
+ESB SpMV performance results:
+   SpMV GFlop/s: 7.567940
+   SpMV time:    0.000821
+   schedule:     static
+Validation PASSED
+Warning: measured time is less than 0.5 sec: 0.000656
+Measured results could be unstable
+ESB SpMV performance results:
+   SpMV GFlop/s: 9.469609
+   SpMV time:    0.000656
+   schedule:     dynamic

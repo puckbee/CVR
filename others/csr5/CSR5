@@ -1,0 +1,9 @@
+Binary file ./spmv matches
+./detail/avx512/format_avx512.h:                                 const bool R2C) // R2C==true means CSR->CSR5, otherwise CSR5->CSR
+./main.cpp:    printf("CSR-based SpMV OMP time = %f ms. Bandwidth = %f GB/s. GFlops = %f GFlops.\n\n",
+./main.cpp:    // record a correct CSR->CSR5 time without PCIe overhead
+./main.cpp:    printf("CSR->CSR5 time = %f ms.\n", asCSR5_timer.stop());
+./anonymouslib_avx512.h:        printf("CSR->CSR5 malloc time = %f ms\n", malloc_time);
+./anonymouslib_avx512.h:        printf("CSR->CSR5 tile_ptr time = %f ms\n", tile_ptr_time);
+./anonymouslib_avx512.h:        printf("CSR->CSR5 tile_desc time = %f ms\n", tile_desc_time);
+./anonymouslib_avx512.h:        printf("CSR->CSR5 transpose time = %f ms\n", transpose_time);

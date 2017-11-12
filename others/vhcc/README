@@ -1,0 +1,41 @@
+OVERVIEW
+========
+VHCC is an efficient Sparse Matrix Vector Multiply (SpMV) implementation on Xeon Phi. It is particularly optimized for scale-free sparse matrices.
+
+PREREQUISITES
+=============
+Intel Compiler version >= 13.1
+
+HOW TO
+======
+- Type "make" to compile
+- Copy the compiled "phi_spmv" binary to Xeon Phi
+- Copy lib/libiomp5.so to Xeon Phi
+- On Xeon Phi, export LD_LIBRARY_PATH with path to libiomp5.so
+- Execute ./phi_spmv -f matrix.mtx -t 240 -r 512 -c 8192 -p 4
+
+OPTIONS
+=======
+-f: matrix market format
+-t: number of threads (suggested: 240)
+-r: row blocking factor (suggested: 512)
+-c: column blocking factor (suggested: 8192)
+-p: number of panels (see below)
+
+SUGGESTED PANEL NUMBERS
+=======================
+Suggested numbers of panels for our tested matrices
+Stanford		5
+IMDB			5
+wiki-Talk		1
+web-Google		2
+connectus		40
+NotreDame_actors	1
+citationCiteseer	5
+soc-sign-epinions	1
+human_gene2		6
+mouse_gene		15
+	
+
+
+

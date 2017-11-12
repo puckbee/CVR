@@ -1,0 +1,16 @@
+This is the redist.txt file for the Intel(R) Math Kernel Library Sparse Matrix 
+Vector Multiply Format Prototype Package (Intel(R) MKL SpMV Format Prototype 
+Package) for Linux* product.
+
+This release of the Intel(R) MKL SpMV Format Prototype Package for Linux*
+product is a Pre-Release, and as such is subject to the terms and conditions 
+defined in the End User License Agreement ("EULA") accompanying this release, 
+including but not limited to Section 3.C.i of the EULA. 
+
+This Pre-Release of the Intel(R) MKL SpMV Format Prototype Package for Linux* 
+product does not contain any Redistributables, as defined in the accompanying EULA. 
+
+In addition, you agree to maintain as confidential all information relating to 
+your use of the Materials (as defined in the EULA) and not to disclose to any 
+third party any benchmarks, performance results, or other information relating 
+to the Materials. 

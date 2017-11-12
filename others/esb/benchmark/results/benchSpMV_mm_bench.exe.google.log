@@ -1,0 +1,45 @@
+Double-precision SpMV performance benchmark for 
+ Intel(R) MKL SpMV Format Prototype Package, version 0.2
+Input file: /tmp/google
+Reading matrix completed
+Operation COO->CSR completed
+Number of OMP threads: 240
+Sparse matrix info:
+       rows: 916428
+       cols: 916428
+       nnz:  5105039
+Validation PASSED
+MKL SpMV performance results:
+   SpMV GFlop/s: 1.115442
+   SpMV time:    0.009153
+Validation PASSED
+CSR SpMV performance results:
+   SpMV GFlop/s: 1.870656
+   SpMV time:    0.005458
+   schedule:     static
+Validation PASSED
+CSR SpMV performance results:
+   SpMV GFlop/s: 1.860440
+   SpMV time:    0.005488
+   schedule:     dynamic
+Validation PASSED
+CSR SpMV performance results:
+   SpMV GFlop/s: 0.796211
+   SpMV time:    0.012823
+   schedule:     block
+ **********************************************
+ Pre-processing Time is 1.194126
+ **********************************************
+Validation PASSED
+ESB SpMV performance results:
+   SpMV GFlop/s: 1.716670
+   SpMV time:    0.005948
+   schedule:     static
+ **********************************************
+ Pre-processing Time is 1.195443
+ **********************************************
+Validation PASSED
+ESB SpMV performance results:
+   SpMV GFlop/s: 1.784041
+   SpMV time:    0.005723
+   schedule:     dynamic

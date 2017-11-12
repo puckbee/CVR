@@ -1,0 +1,324 @@
+Double-precision SpMV performance benchmark for 
+ Intel(R) MKL SpMV Format Prototype Package, version 0.2
+Input file: /tmp/wb-edu
+Reading matrix completed
+ cols[0]= 14, vals[0]=1.000000
+ cols[1]= 4, vals[1]=1.000000
+ cols[2]= 5, vals[2]=1.000000
+ cols[3]= 10, vals[3]=1.000000
+ cols[4]= 12, vals[4]=1.000000
+ cols[5]= 13, vals[5]=1.000000
+ cols[6]= 16, vals[6]=1.000000
+ cols[7]= 17, vals[7]=1.000000
+ cols[8]= 20, vals[8]=1.000000
+ cols[9]= 21, vals[9]=1.000000
+ cols[10]= 23, vals[10]=1.000000
+ cols[11]= 26, vals[11]=1.000000
+ cols[12]= 27, vals[12]=1.000000
+ cols[13]= 28, vals[13]=1.000000
+ cols[14]= 33, vals[14]=1.000000
+ cols[15]= 34, vals[15]=1.000000
+ cols[16]= 35, vals[16]=1.000000
+ cols[17]= 41, vals[17]=1.000000
+ cols[18]= 42, vals[18]=1.000000
+ cols[19]= 89, vals[19]=1.000000
+ cols[20]= 93, vals[20]=1.000000
+ cols[21]= 94, vals[21]=1.000000
+ cols[22]= 97, vals[22]=1.000000
+ cols[23]= 102, vals[23]=1.000000
+ cols[24]= 4, vals[24]=1.000000
+ cols[25]= 6, vals[25]=1.000000
+ cols[26]= 9, vals[26]=1.000000
+ cols[27]= 39, vals[27]=1.000000
+ cols[28]= 40, vals[28]=1.000000
+ cols[29]= 102, vals[29]=1.000000
+ cols[30]= 4, vals[30]=1.000000
+ cols[31]= 74, vals[31]=1.000000
+ cols[32]= 77, vals[32]=1.000000
+ cols[33]= 4, vals[33]=1.000000
+ cols[34]= 39, vals[34]=1.000000
+ cols[35]= 4, vals[35]=1.000000
+ cols[36]= 39, vals[36]=1.000000
+ cols[37]= 61, vals[37]=1.000000
+ cols[38]= 99, vals[38]=1.000000
+ cols[39]= 105, vals[39]=1.000000
+ cols[40]= 4, vals[40]=1.000000
+ cols[41]= 81, vals[41]=1.000000
+ cols[42]= 4, vals[42]=1.000000
+ cols[43]= 4, vals[43]=1.000000
+ cols[44]= 28, vals[44]=1.000000
+ cols[45]= 39, vals[45]=1.000000
+ cols[46]= 53, vals[46]=1.000000
+ cols[47]= 61, vals[47]=1.000000
+ cols[48]= 4, vals[48]=1.000000
+ cols[49]= 13, vals[49]=1.000000
+ cols[50]= 20, vals[50]=1.000000
+ cols[51]= 40, vals[51]=1.000000
+ cols[52]= 44, vals[52]=1.000000
+ cols[53]= 46, vals[53]=1.000000
+ cols[54]= 55, vals[54]=1.000000
+ cols[55]= 65, vals[55]=1.000000
+ cols[56]= 66, vals[56]=1.000000
+ cols[57]= 67, vals[57]=1.000000
+ cols[58]= 74, vals[58]=1.000000
+ cols[59]= 77, vals[59]=1.000000
+ cols[60]= 83, vals[60]=1.000000
+ cols[61]= 4, vals[61]=1.000000
+ cols[62]= 5, vals[62]=1.000000
+ cols[63]= 10, vals[63]=1.000000
+ cols[64]= 12, vals[64]=1.000000
+ cols[65]= 13, vals[65]=1.000000
+ cols[66]= 16, vals[66]=1.000000
+ cols[67]= 17, vals[67]=1.000000
+ cols[68]= 20, vals[68]=1.000000
+ cols[69]= 21, vals[69]=1.000000
+ cols[70]= 23, vals[70]=1.000000
+ cols[71]= 26, vals[71]=1.000000
+ cols[72]= 27, vals[72]=1.000000
+ cols[73]= 28, vals[73]=1.000000
+ cols[74]= 33, vals[74]=1.000000
+ cols[75]= 34, vals[75]=1.000000
+ cols[76]= 35, vals[76]=1.000000
+ cols[77]= 41, vals[77]=1.000000
+ cols[78]= 42, vals[78]=1.000000
+ cols[79]= 89, vals[79]=1.000000
+ cols[80]= 93, vals[80]=1.000000
+ cols[81]= 94, vals[81]=1.000000
+ cols[82]= 97, vals[82]=1.000000
+ cols[83]= 102, vals[83]=1.000000
+ cols[84]= 15, vals[84]=1.000000
+ cols[85]= 90, vals[85]=1.000000
+ cols[86]= 4, vals[86]=1.000000
+ cols[87]= 15, vals[87]=1.000000
+ cols[88]= 16, vals[88]=1.000000
+ cols[89]= 17, vals[89]=1.000000
+ cols[90]= 20, vals[90]=1.000000
+ cols[91]= 35, vals[91]=1.000000
+ cols[92]= 41, vals[92]=1.000000
+ cols[93]= 96, vals[93]=1.000000
+ cols[94]= 106, vals[94]=1.000000
+ cols[95]= 4, vals[95]=1.000000
+ cols[96]= 35, vals[96]=1.000000
+ cols[97]= 39, vals[97]=1.000000
+ cols[98]= 71, vals[98]=1.000000
+ cols[99]= 74, vals[99]=1.000000
+ cols[100]= 93, vals[100]=1.000000
+ cols[101]= 106, vals[101]=1.000000
+ cols[102]= 4, vals[102]=1.000000
+ cols[103]= 39, vals[103]=1.000000
+ cols[104]= 40, vals[104]=1.000000
+ cols[105]= 4, vals[105]=1.000000
+ cols[106]= 19, vals[106]=1.000000
+ cols[107]= 20, vals[107]=1.000000
+ cols[108]= 21, vals[108]=1.000000
+ cols[109]= 22, vals[109]=1.000000
+ cols[110]= 23, vals[110]=1.000000
+ cols[111]= 24, vals[111]=1.000000
+ cols[112]= 25, vals[112]=1.000000
+ cols[113]= 26, vals[113]=1.000000
+ cols[114]= 27, vals[114]=1.000000
+ cols[115]= 28, vals[115]=1.000000
+ cols[116]= 29, vals[116]=1.000000
+ cols[117]= 30, vals[117]=1.000000
+ cols[118]= 31, vals[118]=1.000000
+ cols[119]= 32, vals[119]=1.000000
+ cols[120]= 33, vals[120]=1.000000
+ cols[121]= 34, vals[121]=1.000000
+ cols[122]= 35, vals[122]=1.000000
+ cols[123]= 36, vals[123]=1.000000
+ cols[124]= 37, vals[124]=1.000000
+ cols[125]= 4, vals[125]=1.000000
+ cols[126]= 19, vals[126]=1.000000
+ cols[127]= 20, vals[127]=1.000000
+ cols[128]= 4, vals[128]=1.000000
+ cols[129]= 7, vals[129]=1.000000
+ cols[130]= 19, vals[130]=1.000000
+ cols[131]= 21, vals[131]=1.000000
+ cols[132]= 24, vals[132]=1.000000
+ cols[133]= 25, vals[133]=1.000000
+ cols[134]= 34, vals[134]=1.000000
+ cols[135]= 39, vals[135]=1.000000
+ cols[136]= 43, vals[136]=1.000000
+ cols[137]= 45, vals[137]=1.000000
+ cols[138]= 47, vals[138]=1.000000
+ cols[139]= 49, vals[139]=1.000000
+ cols[140]= 50, vals[140]=1.000000
+ cols[141]= 61, vals[141]=1.000000
+ cols[142]= 63, vals[142]=1.000000
+ cols[143]= 66, vals[143]=1.000000
+ cols[144]= 67, vals[144]=1.000000
+ cols[145]= 71, vals[145]=1.000000
+ cols[146]= 74, vals[146]=1.000000
+ cols[147]= 78, vals[147]=1.000000
+ cols[148]= 79, vals[148]=1.000000
+ cols[149]= 86, vals[149]=1.000000
+ cols[150]= 89, vals[150]=1.000000
+ cols[151]= 93, vals[151]=1.000000
+ cols[152]= 94, vals[152]=1.000000
+ cols[153]= 4795149, vals[153]=1.000000
+ cols[154]= 4, vals[154]=1.000000
+ cols[155]= 19, vals[155]=1.000000
+ cols[156]= 4, vals[156]=1.000000
+ cols[157]= 19, vals[157]=1.000000
+ cols[158]= 28, vals[158]=1.000000
+ cols[159]= 39, vals[159]=1.000000
+ cols[160]= 52, vals[160]=1.000000
+ cols[161]= 4, vals[161]=1.000000
+ cols[162]= 7, vals[162]=1.000000
+ cols[163]= 19, vals[163]=1.000000
+ cols[164]= 24, vals[164]=1.000000
+ cols[165]= 39, vals[165]=1.000000
+ cols[166]= 45, vals[166]=1.000000
+ cols[167]= 66, vals[167]=1.000000
+ cols[168]= 74, vals[168]=1.000000
+ cols[169]= 77, vals[169]=1.000000
+ cols[170]= 4, vals[170]=1.000000
+ cols[171]= 19, vals[171]=1.000000
+ cols[172]= 4, vals[172]=1.000000
+ cols[173]= 18, vals[173]=1.000000
+ cols[174]= 19, vals[174]=1.000000
+ cols[175]= 26, vals[175]=1.000000
+ cols[176]= 39, vals[176]=1.000000
+ cols[177]= 4, vals[177]=1.000000
+ cols[178]= 19, vals[178]=1.000000
+ cols[179]= 27, vals[179]=1.000000
+ cols[180]= 4, vals[180]=1.000000
+ cols[181]= 19, vals[181]=1.000000
+ cols[182]= 53, vals[182]=1.000000
+ cols[183]= 4, vals[183]=1.000000
+ cols[184]= 19, vals[184]=1.000000
+ cols[185]= 4, vals[185]=1.000000
+ cols[186]= 19, vals[186]=1.000000
+ cols[187]= 26, vals[187]=1.000000
+ cols[188]= 4, vals[188]=1.000000
+ cols[189]= 19, vals[189]=1.000000
+ cols[190]= 4, vals[190]=1.000000
+ cols[191]= 19, vals[191]=1.000000
+ cols[192]= 33, vals[192]=1.000000
+ cols[193]= 7459353, vals[193]=1.000000
+ cols[194]= 4, vals[194]=1.000000
+ cols[195]= 19, vals[195]=1.000000
+ cols[196]= 30, vals[196]=1.000000
+ cols[197]= 31, vals[197]=1.000000
+ cols[198]= 32, vals[198]=1.000000
+ cols[199]= 34, vals[199]=1.000000
+ cols[200]= 4, vals[200]=1.000000
+ cols[201]= 19, vals[201]=1.000000
+ cols[202]= 39, vals[202]=1.000000
+ cols[203]= 85, vals[203]=1.000000
+ cols[204]= 94, vals[204]=1.000000
+ cols[205]= 4, vals[205]=1.000000
+ cols[206]= 19, vals[206]=1.000000
+ cols[207]= 4, vals[207]=1.000000
+ cols[208]= 19, vals[208]=1.000000
+ cols[209]= 4, vals[209]=1.000000
+ cols[210]= 38, vals[210]=1.000000
+ cols[211]= 39, vals[211]=1.000000
+ cols[212]= 41, vals[212]=1.000000
+ cols[213]= 43, vals[213]=1.000000
+ cols[214]= 44, vals[214]=1.000000
+ cols[215]= 45, vals[215]=1.000000
+ cols[216]= 46, vals[216]=1.000000
+ cols[217]= 47, vals[217]=1.000000
+ cols[218]= 48, vals[218]=1.000000
+ cols[219]= 49, vals[219]=1.000000
+ cols[220]= 50, vals[220]=1.000000
+ cols[221]= 51, vals[221]=1.000000
+ cols[222]= 52, vals[222]=1.000000
+ cols[223]= 53, vals[223]=1.000000
+ cols[224]= 54, vals[224]=1.000000
+ cols[225]= 55, vals[225]=1.000000
+ cols[226]= 56, vals[226]=1.000000
+ cols[227]= 57, vals[227]=1.000000
+ cols[228]= 58, vals[228]=1.000000
+ cols[229]= 59, vals[229]=1.000000
+ cols[230]= 60, vals[230]=1.000000
+ cols[231]= 61, vals[231]=1.000000
+ cols[232]= 62, vals[232]=1.000000
+ cols[233]= 63, vals[233]=1.000000
+ cols[234]= 64, vals[234]=1.000000
+ cols[235]= 65, vals[235]=1.000000
+ cols[236]= 66, vals[236]=1.000000
+ cols[237]= 67, vals[237]=1.000000
+ cols[238]= 68, vals[238]=1.000000
+ cols[239]= 69, vals[239]=1.000000
+ cols[240]= 70, vals[240]=1.000000
+ cols[241]= 71, vals[241]=1.000000
+ cols[242]= 72, vals[242]=1.000000
+ cols[243]= 74, vals[243]=1.000000
+ cols[244]= 75, vals[244]=1.000000
+ cols[245]= 76, vals[245]=1.000000
+ cols[246]= 77, vals[246]=1.000000
+ cols[247]= 78, vals[247]=1.000000
+ cols[248]= 79, vals[248]=1.000000
+ cols[249]= 80, vals[249]=1.000000
+ cols[250]= 81, vals[250]=1.000000
+ cols[251]= 82, vals[251]=1.000000
+ cols[252]= 83, vals[252]=1.000000
+ cols[253]= 84, vals[253]=1.000000
+ cols[254]= 85, vals[254]=1.000000
+ cols[255]= 86, vals[255]=1.000000
+Operation COO->CSR completed
+Number of OMP threads: 240
+Sparse matrix info:
+       rows: 9845725
+       cols: 9845725
+       nnz:  57156537
+Validation PASSED
+Warning: measured time is less than 0.5 sec: 0.023479
+Measured results could be unstable
+MKL SpMV performance results:
+   SpMV GFlop/s: 4.868814
+   SpMV time:    0.023479
+ y_ref[0] = 0.000000
+ y_ref[16] = 9.000000
+ y_ref[32] = 2.000000
+ y_ref[48] = 4.000000
+ y_ref[64] = 4.000000
+ y_ref[80] = 4.000000
+ y_ref[96] = 1.000000
+ y_ref[112] = 1.000000
+ y_ref[128] = 0.000000
+ y_ref[144] = 0.000000
+ y_ref[160] = 0.000000
+ y_ref[176] = 0.000000
+ y_ref[192] = 0.000000
+ y_ref[208] = 6.000000
+ y_ref[224] = 0.000000
+ y_ref[240] = 8.000000
+ before the end of MKL
+Validation PASSED
+Warning: measured time is less than 0.5 sec: 0.013928
+Measured results could be unstable
+CSR SpMV performance results:
+   SpMV GFlop/s: 8.207307
+   SpMV time:    0.013928
+   schedule:     static
+Validation PASSED
+Warning: measured time is less than 0.5 sec: 0.011103
+Measured results could be unstable
+CSR SpMV performance results:
+   SpMV GFlop/s: 10.295748
+   SpMV time:    0.011103
+   schedule:     dynamic
+Validation PASSED
+Warning: measured time is less than 0.5 sec: 0.014014
+Measured results could be unstable
+CSR SpMV performance results:
+   SpMV GFlop/s: 8.157122
+   SpMV time:    0.014014
+   schedule:     block
+Validation PASSED
+Warning: measured time is less than 0.5 sec: 0.010239
+Measured results could be unstable
+ESB SpMV performance results:
+   SpMV GFlop/s: 11.164697
+   SpMV time:    0.010239
+   schedule:     static
+Validation PASSED
+Warning: measured time is less than 0.5 sec: 0.008032
+Measured results could be unstable
+ESB SpMV performance results:
+   SpMV GFlop/s: 14.231604
+   SpMV time:    0.008032
+   schedule:     dynamic

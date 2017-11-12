@@ -585,7 +585,7 @@ void pre_processing(int Nthrds, int N_start, int N_step, int* vPack_Nblock, int*
 
 //   std::cout<<"=========********* ----------------------------------   *********=========="<<endl;
   std::cout<<"==========================================================================="<<endl;
-   std::cout<<"=========*********   Pre-Processing (CSR->CVR)      *********=========="<<endl;
+   std::cout<<"=========*********   Converting (CSR->CVR)      *********=========="<<endl;
     std::cout<<endl;
 
 //std::cout<<" before pre-processing"<<endl;
@@ -1024,7 +1024,7 @@ void pre_processing(int Nthrds, int N_start, int N_step, int* vPack_Nblock, int*
   }
 }
 //   std::cout<<"The Pre-processing Time of CVR is  "<<filename<<" "<<microtime() - kk0<<" seconds"<<endl;
-   std::cout<<"The Pre-processing Time of CVR is "<<microtime() - kk0<<" seconds"<<endl;
+   std::cout<<"The Pre-processing(CSR->CVR)   Time of CVR   is "<<microtime() - kk0<<" seconds.   [file: "<<filename<<"] [threads: "<<Nthrds<<"]"<<endl;
 
     std::cout<<endl;
 
@@ -1677,9 +1677,9 @@ if(ncsr>=0)
 }
 //   std::cout<<" average work time is "<<tt2/Ntimes<<endl;
 //   std::cout<<"The SpMV execution Time of CVR is  "<<filename<<" "<<tt2/Ntimes<<" seconds"<<endl;
-   std::cout<<"The SpMV execution Time of CVR is "<<tt2/Ntimes<<" seconds"<<endl;
+   std::cout<<"The SpMV Execution Time of CVR  is "<<tt2/Ntimes<<" seconds.   [file: "<<filename<<"] [threads: "<<Nthrds<<"]"<<endl;
 //   std::cout<<endl;
-   std::cout<<"         The Throughput of CVR is "<<nItems/(tt2/Ntimes)/1000000/1000<< " Gflops (for double precision)"<<endl;
+   std::cout<<"         The Throughput of CVR  is "<<nItems/(tt2/Ntimes)/1000000/1000<< " GFlops.    [file: "<<filename<<"] [threads: "<<Nthrds<<"]"<<endl;
     std::cout<<endl;
   std::cout<<"==========================================================================="<<endl;
 }
