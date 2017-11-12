@@ -20,6 +20,8 @@ Here, we use web-Google for example to show how to use CVR:
 The CVR accepts three parameters: file path; Number of Threads; Number of Iterations. <br>
 In run_sample.sh, there is a command like this:
 
+		numactl --membind=1 ./spmv.cvr [filepath] [numThreads] [numIterations]
+
 		numactl --membind=1 ./spmv.cvr dataset/web-Google.mtx 68 1000
 
 It means CVR reads a sparse matrix from "web-Google/web-Google.mtx" and execute SpMV with 272 threads for 1000 iterations. 
@@ -33,39 +35,41 @@ MKL,CSR-I and ESB are dependent on MKL. <br>
 Please make sure that MKL is already installed and the environment variable $MKL_ROOT is already set. <br>
 
 We tried various threads numbers and parameters for each format/solution and choose the one that achieves the best performance.<br>
+You can try to setup different threads numbers in run_comparison.sh, we will elaborate how to use these formats later. <br>
+But if you only want to have a try, these three steps can definitely meet your need. <br>
 
 		Step 1: cd ./solutions_for_comparison
 
 		Step 2: ./build.sh        // build all formats/ solutions
 
-		Step 3: ./run_comparison.sh     // run all formats/solutions 
-		(a)     ./run_comparison.sh | grep 'Pre-processing'      // get the Pre-processing time. 
-		(b)     ./run_comparison.sh | grep 'SpMV Execution'      // get the SpMV execution time. 
-		(c)     ./run_comparison.sh | grep 'Throughput'          // get the Throughput(GFlops).
+		Step 3: ./run_comparison.sh ../dataset/web-Google.mtx                               // run all formats/solutions 
+		(a)     ./run_comparison.sh ../dataset/web-Google.mtx  | grep 'Pre-processing'      // get the Pre-processing time. 
+		(b)     ./run_comparison.sh ../dataset/web-Google.mtx  | grep 'SpMV Execution'      // get the SpMV execution time. 
+		(c)     ./run_comparison.sh ../dataset/web-Google.mtx  | grep 'Throughput'          // get the Throughput(GFlops).
 
 We will elaborate how to use each format/solution, so that you can change the parameters to fullfill your own requirement.
 ### CSR5
-		numactl --membind=1 ./spmv.csr5 [numThreads] [numIterations]
+		numactl --membind=1 ./bin/spmv.csr5 [filepath] [numThreads] [numIterations]
 
-		Sample: numactl --membind=1 ./spmv.csr5 204 1000
+		Sample: numactl --membind=1 ./spmv.csr5 ../dataset/web-Google.mtx 204 1000
 ### VHCC
 VHCC has many parameters. Since the width and height of blocks is pretty fixed to be (512,8192), we only provide the number of panels here.
-		numactl --membind=1 ./spmv.vhcc [numThreads] [numIterations] [numPanels]
+		numactl --membind=1 ./bin/spmv.vhcc [filepath] [numThreads] [numIterations] [numPanels]
 		
-		Sample: numactl --membind=1 ./spmv.vhcc 272 1000 1
+		Sample: numactl --membind=1 ./spmv.vhcc ../dataset/web-Google.mtx 272 1000 1
 ### CSR-I
-		numactl --membind=1 ./spmv.csr [numThreads] [numIterations]
+		numactl --membind=1 ./bin/spmv.csr [filepath] [numThreads] [numIterations]
 	
-		Sample: numactl --membind=1 ./spmv.csr 272 1000
+		Sample: numactl --membind=1 ./spmv.csr ../dataset/web-Google.mtx 272 1000
 ### ESB
 ESB has diffent schedule policies: static and dynamic. 1 for static; 2 for dynamic; 3 for both two.
-		numactl --membind=1 ./spmv.esb [numThreads] [numIterations] [schedule_policy]
+		numactl --membind=1 ./bin/spmv.esb [filepath] [numThreads] [numIterations] [schedule_policy]
 
-		Sample: numactl --membind=1 ./spmv.esb 272 1000 3
+		Sample: numactl --membind=1 ./spmv.esb ../dataset/web-Google.mtx 272 1000 3
 ### MKL
-		numactl --membind=1 ./spmv.mkl [numThreads] [numIterations]
+		numactl --membind=1 ./bin/spmv.mkl [filepath] [numThreads] [numIterations]
 
-		Sample: numactl --membind=1 ./spmv.mkl 272 1000
+		Sample: numactl --membind=1 ./spmv.mkl ../dataset/web-Google.mtx 272 1000
 
 
 # Cache Performance Profiling (Additional)
@@ -75,6 +79,6 @@ Dependency:  Vtune
 		
 		Step 2: ./build.sh                 // If it has not been built yet
 
-		Step 3: ./run_locality.sh
+		Step 3: ./run_locality.sh ../dataset/web-Google.mtx 
 
 
