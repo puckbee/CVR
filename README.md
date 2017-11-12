@@ -47,13 +47,13 @@ But if you just want to have a reproduce the experiment results of web-Google, t
 
 We will elaborate how to use each format/solution, so that you can change the configuration to fullfill your own requirements.
 ### CSR5
-numactl --membind=1 ./bin/spmv.csr5 [filepath] [numThreads] [numIterations]
+** numactl --membind=1 ./bin/spmv.csr5 [filepath] [numThreads] [numIterations] **
 
-Sample: numactl --membind=1 ./spmv.csr5 ../dataset/web-Google.mtx 204 1000
+** Sample: numactl --membind=1 ./spmv.csr5 ../dataset/web-Google.mtx 204 1000 **
 ### VHCC
 VHCC has many parameters. Since the width and height of blocks is pretty fixed to be (512,8192), we only provide the number of panels here.
 
-numactl --membind=1 ./bin/spmv.vhcc [filepath] [numThreads] [numIterations] [numPanels]
+** numactl --membind=1 ./bin/spmv.vhcc [filepath] [numThreads] [numIterations] [numPanels] **
 		
 Sample: numactl --membind=1 ./spmv.vhcc ../dataset/web-Google.mtx 272 1000 1
 ### CSR-I
