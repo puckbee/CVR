@@ -20,9 +20,9 @@ Here, we use web-Google for example to show how to use CVR:
 The CVR accepts three parameters: file path; Number of Threads; Number of Iterations. <br>
 In run_sample.sh, there is a command like this:
 
-numactl --membind=1 ./spmv.cvr [filepath] [numThreads] [numIterations]
+**numactl --membind=1 ./spmv.cvr [filepath] [numThreads] [numIterations]**
 
-Sample: numactl --membind=1 ./spmv.cvr dataset/web-Google.mtx 68 1000
+**Sample: numactl --membind=1 ./spmv.cvr dataset/web-Google.mtx 68 1000**
 
 CVR will print two times in seconds: [Pre-processing time] and [SpMV Execution time]. <br>
 [Pre-processing time] is the time of converting a sparse matrix with CSR format to CVR format. <br>
@@ -55,20 +55,20 @@ VHCC has many parameters. Since the width and height of blocks is pretty fixed t
 
 **numactl --membind=1 ./bin/spmv.vhcc [filepath] [numThreads] [numIterations] [numPanels]**
 		
-Sample: numactl --membind=1 ./spmv.vhcc ../dataset/web-Google.mtx 272 1000 1
+**Sample: numactl --membind=1 ./spmv.vhcc ../dataset/web-Google.mtx 272 1000 1**
 ### CSR-I
-	numactl --membind=1 ./bin/spmv.csr [filepath] [numThreads] [numIterations]
+**numactl --membind=1 ./bin/spmv.csr [filepath] [numThreads] [numIterations]**
 	
-	Sample: numactl --membind=1 ./spmv.csr ../dataset/web-Google.mtx 272 1000
+**Sample: numactl --membind=1 ./spmv.csr ../dataset/web-Google.mtx 272 1000**
 ### ESB
 ESB has diffent schedule policies: static and dynamic. 1 for static; 2 for dynamic; 3 for both two.
-	numactl --membind=1 ./bin/spmv.esb [filepath] [numThreads] [numIterations] [schedule_policy]
+**numactl --membind=1 ./bin/spmv.esb [filepath] [numThreads] [numIterations] [schedule_policy]**
 
-	Sample: numactl --membind=1 ./spmv.esb ../dataset/web-Google.mtx 272 1000 3
+**Sample: numactl --membind=1 ./spmv.esb ../dataset/web-Google.mtx 272 1000 3**
 ### MKL
-	numactl --membind=1 ./bin/spmv.mkl [filepath] [numThreads] [numIterations]
+**numactl --membind=1 ./bin/spmv.mkl [filepath] [numThreads] [numIterations]**
 
-	Sample: numactl --membind=1 ./spmv.mkl ../dataset/web-Google.mtx 272 1000
+**Sample: numactl --membind=1 ./spmv.mkl ../dataset/web-Google.mtx 272 1000**
 
 
 # Cache Performance Profiling (Additional)
