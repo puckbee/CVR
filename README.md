@@ -6,25 +6,28 @@ This is the artifact of our CGO'2018 paper [ CVR: Efficient SpMV Vectorization o
 
 CVR can be built simply with 'make', while the resulted binariy file is 'spmv.cvr'.
 
-Step 1: make
+		Step 1: make
 
 # Data set Preparation and Execution
-Our implementation of CVR supports sparse matrices with matrix market format, which is one of the default formats in SuiteSparse Matrix Collection (formerly the University of Florida Sparse Matrix Collection). Most of the data sets used in our paper can be found in this collection. We take web-Google for an example to demonstrate the data set preparation.
+Our implementation of CVR supports sparse matrices with matrix market format, which is one of the default formats in SuiteSparse Matrix Collection. Most of the data sets used in our paper can be found in either of these two collections:
+
+		1) [SuiteSparse Matrix Collection](https://sparse.tamu.edu) (formerly the University of Florida Sparse Matrix Collection).
+		2) [Stanford Large Network Dataset Collection](http://snap.stanford.edu/data/) (SNAP).
 
 Here, we use web-Google for example to show how to use CVR:
 
-step 1: ./run_sample.sh
+		step 1: ./run_sample.sh
 
-The CVR accepts three parameters: file path; Number of Threads; Number of Iterations.
+The CVR accepts three parameters: file path; Number of Threads; Number of Iterations. <br>
 In run_sample.sh, there is a command like this:
 
-numactl --membind=1 ./spmv.cvr dataset/web-Google.mtx 68 1000
+		numactl --membind=1 ./spmv.cvr dataset/web-Google.mtx 68 1000
 
 It means CVR reads a sparse matrix from "web-Google/web-Google.mtx" and execute SpMV with 272 threads for 1000 iterations. 
 
-		CVR will print two times in seconds: [Pre-processing time] and [SpMV Execution time].
-		[Pre-processing time] is the time of converting a sparse matrix with CSR format to CVR format.
-		[SpMV Execution time] is the average time of running 1000 iterations of SpMV with CVR format. Note that 1000 can be changed by changing "Number of Iterations"
+CVR will print two times in seconds: [Pre-processing time] and [SpMV Execution time]. <br>
+[Pre-processing time] is the time of converting a sparse matrix with CSR format to CVR format. <br>
+[SpMV Execution time] is the average time of running 1000 iterations of SpMV with CVR format. Note that 1000 can be changed by changing "Number of Iterations" <br>
 
 # Compare CVR with other formats/solutions
 
