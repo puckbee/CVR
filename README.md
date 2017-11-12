@@ -1,28 +1,28 @@
 # CVR
-Parallelized and vectorized SpMV on Intel Xeon Phi (Knights Landing). 
+Parallelized and vectorized SpMV on Intel Xeon Phi (Knights Landing). <br>
 This is the artifact of our CGO'2018 paper [ CVR: Efficient SpMV Vectorization on X86 Processors ].
 
 # Build
 CVR can be built simply with 'make', while the resulted binariy file is 'spmv.cvr'.
 
-		Step: make       
+	Step: make       
 
 # Data set Preparation and Execution
 Our implementation of CVR supports sparse matrices with matrix market format, which is one of the default formats in SuiteSparse Matrix Collection. Most of the data sets used in our paper can be found in either of these two collections:
 
-		1) [SuiteSparse Matrix Collection](https://sparse.tamu.edu) (formerly the University of Florida Sparse Matrix Collection).
-		2) [Stanford Large Network Dataset Collection](http://snap.stanford.edu/data/) (SNAP).
+	1) [SuiteSparse Matrix Collection](https://sparse.tamu.edu) (formerly the University of Florida Sparse Matrix Collection).
+	2) [Stanford Large Network Dataset Collection](http://snap.stanford.edu/data/) (SNAP).
 
 Here, we use web-Google for example to show how to use CVR:
 
-		step 1: ./run_sample.sh
+	step 1: ./run_sample.sh
 
 The CVR accepts three parameters: file path; Number of Threads; Number of Iterations. <br>
 In run_sample.sh, there is a command like this:
 
-		numactl --membind=1 ./spmv.cvr [filepath] [numThreads] [numIterations]
+	numactl --membind=1 ./spmv.cvr [filepath] [numThreads] [numIterations]
 
-		numactl --membind=1 ./spmv.cvr dataset/web-Google.mtx 68 1000
+	numactl --membind=1 ./spmv.cvr dataset/web-Google.mtx 68 1000
 
 It means CVR reads a sparse matrix from "web-Google/web-Google.mtx" and execute SpMV with 272 threads for 1000 iterations. 
 
@@ -49,36 +49,36 @@ But if you only want to have a try, these three steps can definitely meet your n
 
 We will elaborate how to use each format/solution, so that you can change the parameters to fullfill your own requirement.
 ### CSR5
-		numactl --membind=1 ./bin/spmv.csr5 [filepath] [numThreads] [numIterations]
+	numactl --membind=1 ./bin/spmv.csr5 [filepath] [numThreads] [numIterations]
 
-		Sample: numactl --membind=1 ./spmv.csr5 ../dataset/web-Google.mtx 204 1000
+	Sample: numactl --membind=1 ./spmv.csr5 ../dataset/web-Google.mtx 204 1000
 ### VHCC
 VHCC has many parameters. Since the width and height of blocks is pretty fixed to be (512,8192), we only provide the number of panels here.
-		numactl --membind=1 ./bin/spmv.vhcc [filepath] [numThreads] [numIterations] [numPanels]
+	numactl --membind=1 ./bin/spmv.vhcc [filepath] [numThreads] [numIterations] [numPanels]
 		
-		Sample: numactl --membind=1 ./spmv.vhcc ../dataset/web-Google.mtx 272 1000 1
+	Sample: numactl --membind=1 ./spmv.vhcc ../dataset/web-Google.mtx 272 1000 1
 ### CSR-I
-		numactl --membind=1 ./bin/spmv.csr [filepath] [numThreads] [numIterations]
+	numactl --membind=1 ./bin/spmv.csr [filepath] [numThreads] [numIterations]
 	
-		Sample: numactl --membind=1 ./spmv.csr ../dataset/web-Google.mtx 272 1000
+	Sample: numactl --membind=1 ./spmv.csr ../dataset/web-Google.mtx 272 1000
 ### ESB
 ESB has diffent schedule policies: static and dynamic. 1 for static; 2 for dynamic; 3 for both two.
-		numactl --membind=1 ./bin/spmv.esb [filepath] [numThreads] [numIterations] [schedule_policy]
+	numactl --membind=1 ./bin/spmv.esb [filepath] [numThreads] [numIterations] [schedule_policy]
 
-		Sample: numactl --membind=1 ./spmv.esb ../dataset/web-Google.mtx 272 1000 3
+	Sample: numactl --membind=1 ./spmv.esb ../dataset/web-Google.mtx 272 1000 3
 ### MKL
-		numactl --membind=1 ./bin/spmv.mkl [filepath] [numThreads] [numIterations]
+	numactl --membind=1 ./bin/spmv.mkl [filepath] [numThreads] [numIterations]
 
-		Sample: numactl --membind=1 ./spmv.mkl ../dataset/web-Google.mtx 272 1000
+	Sample: numactl --membind=1 ./spmv.mkl ../dataset/web-Google.mtx 272 1000
 
 
 # Cache Performance Profiling (Additional)
 Dependency:  Vtune
 
-		Step 1: cd ./solutions_for_comparison
+	Step 1: cd ./solutions_for_comparison
 		
-		Step 2: ./build.sh                 // If it has not been built yet
+	Step 2: ./build.sh                 // If it has not been built yet
 
-		Step 3: ./run_locality.sh ../dataset/web-Google.mtx 
+	Step 3: ./run_locality.sh ../dataset/web-Google.mtx 
 
 
