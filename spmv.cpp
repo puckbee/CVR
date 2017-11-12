@@ -473,9 +473,21 @@ void readMatrix(char *filename, floatType **val_ptr, int **cols_ptr,
     nElements = index; 
   
     nElements_padding = (nElements%16 == 0) ? nElements : (nElements + 16)/ 16 * 16;
-    std::cout<<" numRows is "<<nRows<<"; numCols is "<< nCols<<";  Number of Elements is "<< nElements<<";  After Padding, Number of Elements is "<< nElements_padding<<endl;
+ 
+  std::cout<<"==========================================================================="<<endl;
+    std::cout<<"=========*********  Informations of the sparse matrix   *********=========="<<endl;
+    std::cout<<endl;
+//    std::cout<<" numRows is "<<nRows<<"; numCols is "<< nCols<<";  Number of Elements is "<< nElements<<";  After Padding, Number of Elements is "<< nElements_padding<<endl;
+    std::cout<<"     Number of Rows is :"<< nRows<<endl;
+    std::cout<<"  Number of Columns is :"<< nCols<<endl;
+    std::cout<<" Number of Elements is :"<< nElements<<endl;
+    std::cout<<"       After Alignment :"<< nElements_padding<<endl;
+    std::cout<<endl;
+  std::cout<<"==========================================================================="<<endl;
+   
+  std::cout<<"............ Converting the Raw matrix to CSR ................."<<endl; 
 
-    std::cout<<" index = "<< index <<";  nElements_padding = "<< nElements_padding<<endl;
+//    std::cout<<" index = "<< index <<";  nElements_padding = "<< nElements_padding<<endl;
 
     for (int qq = index; qq <nElements_padding; qq ++)
     {
@@ -483,7 +495,7 @@ void readMatrix(char *filename, floatType **val_ptr, int **cols_ptr,
             coords[qq].y = coords[index - 1].y;
             coords[qq].val = 0;
 
-            std::cout<<"Padding: qq = "<< qq<<";  x = "<< coords[qq].x <<";  y = "<< coords[qq].y <<"; val = "<< coords[qq].val <<endl;
+//            std::cout<<"Padding: qq = "<< qq<<";  x = "<< coords[qq].x <<";  y = "<< coords[qq].y <<"; val = "<< coords[qq].val <<endl;
         
     }
 
@@ -571,9 +583,12 @@ void fill(floatType *A, const int n, const float maxi)
 void pre_processing(int Nthrds, int N_start, int N_step, int* vPack_Nblock, int* vPack_vec_record, int* vPack_nnz_rows, floatType* vPack_vec_vals, int* vPack_vec_cols, floatType* h_val, int* h_cols, int* vPack_vec_final, int* vPack_vec_final_2, int* vPack_split, floatType* refOut, int nItems, int numRows, int omega, int* h_rowDelimiters, char* filename)
 {
 
+//   std::cout<<"=========********* ----------------------------------   *********=========="<<endl;
+  std::cout<<"==========================================================================="<<endl;
+   std::cout<<"=========*********   Pre-Processing (CSR->CVR)      *********=========="<<endl;
+    std::cout<<endl;
 
-
-std::cout<<" before pre-processing"<<endl;
+//std::cout<<" before pre-processing"<<endl;
 
    double kk0 = microtime();
 
@@ -1008,15 +1023,20 @@ std::cout<<" before pre-processing"<<endl;
 
   }
 }
+//   std::cout<<"The Pre-processing Time of CVR is  "<<filename<<" "<<microtime() - kk0<<" seconds"<<endl;
+   std::cout<<"The Pre-processing Time of CVR is "<<microtime() - kk0<<" seconds"<<endl;
 
-   std::cout<<"OURS PRE Time "<<filename<<" "<<microtime() - kk0<<endl;
-
+    std::cout<<endl;
 
 
 }
 
 void spmv_compute_kernel(int Nthrds, int N_start, int N_step, int* vPack_Nblock, int* vPack_vec_record, int* vPack_nnz_rows, floatType* vPack_vec_vals, int* vPack_vec_cols, floatType* h_val, int* h_cols, int* vPack_vec_final, int* vPack_vec_final_2, int* vPack_split, floatType* refOut, int nItems, int numRows, int omega, int* h_rowDelimiters, char* filename, floatType* h_vec, int Ntimes)
 {
+//   std::cout<<"=========********* ----------------------------------   *********=========="<<endl;
+  std::cout<<"==========================================================================="<<endl;
+   std::cout<<"=========*********   SpMV Executes for "<<Ntimes<<" iterations    *********=========="<<endl;
+    std::cout<<endl;
    double tt2 = 0;
 
   for(int ttk =0; ttk < Ntimes; ttk++)
@@ -1655,9 +1675,13 @@ if(ncsr>=0)
    //std::cout<<" work time is "<<ttmp<<endl;
    tt2 += ttmp;
 }
-   std::cout<<" average work time is "<<tt2/Ntimes<<endl;
-   std::cout<<"OURS EXE Time "<<filename<<" "<<tt2/Ntimes<<endl;
-
+//   std::cout<<" average work time is "<<tt2/Ntimes<<endl;
+//   std::cout<<"The SpMV execution Time of CVR is  "<<filename<<" "<<tt2/Ntimes<<" seconds"<<endl;
+   std::cout<<"The SpMV execution Time of CVR is "<<tt2/Ntimes<<" seconds"<<endl;
+//   std::cout<<endl;
+   std::cout<<"         The Throughput of CVR is "<<nItems/(tt2/Ntimes)/1000000/1000<< " Gflops (for double precision)"<<endl;
+    std::cout<<endl;
+  std::cout<<"==========================================================================="<<endl;
 }
 
 
@@ -1686,7 +1710,13 @@ int main ( int argc, char** argv)
 //  int Nthrds = omp_get_max_threads();
   int Nthrds = atoi(argv[2]);
 
-  std::cout<<" Threads Number: "<< Nthrds << endl;
+  std::cout<<"==========================================================================="<<endl;
+  std::cout<<"=========*********            Input Arguments           *********=========="<<endl;
+    std::cout<<endl;
+
+
+
+  std::cout<<"    Number of Threads: "<< Nthrds << endl;
 
   double Ntimes=atoi(argv[3]);
 //#ifdef NITERS
@@ -1695,8 +1725,12 @@ int main ( int argc, char** argv)
 //  double Ntimes = 1;
 //#endif
 
-  std::cout<<" Ntimes: "<< Ntimes <<endl;
+  std::cout<<" Number of Iterations: "<< Ntimes <<endl;
 
+  std::cout<<"            File Path: "<< argv[1] <<endl;
+
+    std::cout<<endl;
+  std::cout<<"==========================================================================="<<endl;
 //  double Ntimes = 1;
 
 //  int N_start = atoi(argv[3]);
@@ -1750,9 +1784,13 @@ int main ( int argc, char** argv)
 
    char* filename = argv[1];
 
+   std::cout<<".................Reading Files...................."<<endl;
+
    readMatrix(argv[1], &h_val, &h_cols, &h_rowDelimiters,&nItems, &numRows, &numCols);
 
-   std::cout<<numRows<<" "<<nItems<<endl;
+
+
+//   std::cout<<numRows<<" "<<nItems<<endl;
 
     refOut = ALLOC(floatType, numRows+1);
     refOut_verify = ALLOC(floatType, numRows+1);
@@ -1856,7 +1894,7 @@ pre_processing(Nthrds, N_start,  N_step, vPack_Nblock, vPack_vec_record, vPack_n
      qqdan += vPack_split[i];
   }
 
-  std::cout<<" nItems = "<< nItems<<"; qqdan = "<< qqdan<<"; percent = "<<(double)qqdan/(double)nItems * 100<<"%"<<endl;
+//  std::cout<<" nItems = "<< nItems<<"; qqdan = "<< qqdan<<"; percent = "<<(double)qqdan/(double)nItems * 100<<"%"<<endl;
 
 
 spmv_compute_kernel(Nthrds, N_start,  N_step, vPack_Nblock, vPack_vec_record, vPack_nnz_rows, vPack_vec_vals, vPack_vec_cols, h_val, h_cols, vPack_vec_final, vPack_vec_final_2, vPack_split, refOut, nItems, numRows, omega, h_rowDelimiters, filename, h_vec, Ntimes);
@@ -1887,9 +1925,9 @@ spmv_compute_kernel(Nthrds, N_start,  N_step, vPack_Nblock, vPack_vec_record, vP
 */
 
 
-   show(refOut, 0, 257, 16);
+//   show(refOut, 0, 257, 16);
 
-   std::cout<<" ======================"<<endl;
+//   std::cout<<" ======================"<<endl;
 
 //   show(refOut, refOut_verify, 8413, 20, 1);
 
@@ -1908,9 +1946,12 @@ spmv_compute_kernel(Nthrds, N_start,  N_step, vPack_Nblock, vPack_vec_record, vP
       } 
 
       if(result_verify == 0)
-        std::cout<<"     very good, Your method is correct "<< endl;
+        std::cout<<"     Very Good! Your result is correct  "<< endl;
       else
+      {
         std::cout<<"Warning: "<< result_verify <<" out of "<< nItems <<" is wrong"<<endl;
+        std::cout<<" How about sending this dataset to the author(xiebiwei@ict.ac.cn) to help him improving his program ? "<<endl;
+      }
    }
 
 
