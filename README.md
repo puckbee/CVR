@@ -7,7 +7,7 @@ CVR can be built simply with 'make', while the resulted binariy file is 'spmv.cv
 
 	Step: make       
 
-# Data set Preparation and Execution
+# Dataset Preparation and Execution
 Our implementation of CVR supports sparse matrices with matrix market format, which is one of the default formats in SuiteSparse Matrix Collection. Most of the data sets used in our paper can be found in either of these two collections:
 
 	1) [SuiteSparse Matrix Collection](https://sparse.tamu.edu) (formerly the University of Florida Sparse Matrix Collection).
@@ -28,7 +28,7 @@ CVR will print two times in seconds: [Pre-processing time] and [SpMV Execution t
 [Pre-processing time] is the time of converting a sparse matrix with CSR format to CVR format. <br>
 [SpMV Execution time] is the average time of running 1000 iterations of SpMV with CVR format. Note that 1000 can be changed by changing "Number of Iterations" <br>
 
-# Compare CVR with other formats/solutions
+# Compare CVR with Other Formats/Solutions
 MKL,CSR-I and ESB are dependent on MKL. <br>
 Please make sure that MKL is already installed and the environment variable $MKL_ROOT is already set. <br>
 
@@ -80,7 +80,7 @@ Dependency:  Vtune
 	Step 3: ./run_locality.sh [filepath][nT_CVR][nT_CSR5][nT_VHCC][nPanels][nT_CSRI][nT_ESB][schedule_ESB][nT_MKL]
 	        ./run_locality.sh ../dataset/web-Google.mtx 68 204 272 1 272 272 1 272
 
-	Note that 'nT' stands for numThreads, while nPanels stands for numPanels of VHCC.
+	Note that 'nT' stands for numThreads, while 'nPanels' stands for numPanels of VHCC.
 
 # Notes
 We only modified the source code of CSR5 and VHCC to format the output messages. <br>
