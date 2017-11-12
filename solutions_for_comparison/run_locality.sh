@@ -3,6 +3,15 @@
 #amplxe-cl -collect-with runsa -knob event-config=MEM_UOPS_RETIRED.L1_MISS_LOADS,MEM_UOPS.RETIRED.ALL_LOADS,MEM_UOPS_RETIRED.L2_HIT_LOADS,MEM_UOPS_RETIRED.L2_MISS_LOADS,MEM_UOPS_RETIRED.ALL_LOADS,MEM_UOPS_RETIRED.ALL_STORES ./spmv.ours ../../dataset/amazon -r .
 
 filepath=$1
+
+if [ ! -f $filepath ]; then
+   wget https://sparse.tamu.edu/MM/SNAP/web-Google.tar.gz
+   tar xvf web-Google.tar.gz
+   mv web-Google/web-Google.mtx ../dataset/
+   rm -rf web-Google*
+   filepath=../dataset/web-Google.mtx
+fi
+
 file_name=${filepath##*/}
 filename=${file_name%.*}
 echo $filename

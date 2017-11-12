@@ -30,7 +30,9 @@ CVR will print two times in seconds: [Pre-processing time] and [SpMV Execution t
 
 # Compare CVR with other formats/solutions
 MKL,CSR-I and ESB are dependent on MKL. <br>
-Please make sure that MKL is already installed and the environment variable $MKL_ROOT is already set. 
+Please make sure that MKL is already installed and the environment variable $MKL_ROOT is already set. <br>
+
+We tried various threads numbers and parameters for each format/solution and choose the one that achieves the best performance.<br>
 
 		Step 1: cd ./solutions_for_comparison
 
@@ -40,6 +42,30 @@ Please make sure that MKL is already installed and the environment variable $MKL
 		(a)     ./run_comparison.sh | grep 'Pre-processing'      // get the Pre-processing time. 
 		(b)     ./run_comparison.sh | grep 'SpMV Execution'      // get the SpMV execution time. 
 		(c)     ./run_comparison.sh | grep 'Throughput'          // get the Throughput(GFlops).
+
+We will elaborate how to use each format/solution, so that you can change the parameters to fullfill your own requirement.
+## CSR5
+		numactl --membind=1 ./spmv.csr5 [numThreads] [numIterations]
+
+		Sample: numactl --membind=1 ./spmv.csr5 204 1000
+## VHCC
+VHCC has many parameters. Since the width and height of blocks is pretty fixed to be (512,8192), we only provide the number of panels here.
+		numactl --membind=1 ./spmv.vhcc [numThreads] [numIterations] [numPanels]
+		
+		Sample: numactl --membind=1 ./spmv.vhcc 272 1000 1
+## CSR-I
+		numactl --membind=1 ./spmv.csr [numThreads] [numIterations]
+	
+		Sample: numactl --membind=1 ./spmv.csr 272 1000
+## ESB
+ESB has diffent schedule policies: static and dynamic. 1 for static; 2 for dynamic; 3 for both two.
+		numactl --membind=1 ./spmv.esb [numThreads] [numIterations] [schedule_policy]
+
+		Sample: numactl --membind=1 ./spmv.esb 272 1000 3
+## MKL
+		numactl --membind=1 ./spmv.mkl [numThreads] [numIterations]
+
+		Sample: numactl --membind=1 ./spmv.mkl 272 1000
 
 
 # Cache Performance Profiling (Additional)
