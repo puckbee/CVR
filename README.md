@@ -1,6 +1,6 @@
 # CVR
 Parallelized and vectorized SpMV on Intel Xeon Phi (Knights Landing). <br>
-This is the artifact of our CGO'2018 paper [ CVR: Efficient SpMV Vectorization on X86 Processors ].
+This is the artifact of our CGO'2018 paper [ CVR: Efficient SpMV Vectorization on X86 Processors ]. <br>
 
 # Build
 CVR can be built simply with 'make', while the resulted binariy file is 'spmv.cvr'.
@@ -24,8 +24,6 @@ In run_sample.sh, there is a command like this:
 
 	numactl --membind=1 ./spmv.cvr dataset/web-Google.mtx 68 1000
 
-It means CVR reads a sparse matrix from "web-Google/web-Google.mtx" and execute SpMV with 272 threads for 1000 iterations. 
-
 CVR will print two times in seconds: [Pre-processing time] and [SpMV Execution time]. <br>
 [Pre-processing time] is the time of converting a sparse matrix with CSR format to CVR format. <br>
 [SpMV Execution time] is the average time of running 1000 iterations of SpMV with CVR format. Note that 1000 can be changed by changing "Number of Iterations" <br>
@@ -34,9 +32,9 @@ CVR will print two times in seconds: [Pre-processing time] and [SpMV Execution t
 MKL,CSR-I and ESB are dependent on MKL. <br>
 Please make sure that MKL is already installed and the environment variable $MKL_ROOT is already set. <br>
 
-We tried various threads numbers and parameters for each format/solution and choose the one that achieves the best performance.<br>
-You can try to setup different threads numbers in run_comparison.sh, we will elaborate how to use these formats later. <br>
-But if you only want to have a try, these three steps can definitely meet your need. <br>
+We tried various threads numbers and parameters for each format/solution and choose the configuration that achieves the best performance.<br>
+You can try to setup different threads numbers in run_comparison.sh, we will elaborate how to do this later. <br>
+But if you just want to have a reproduce the experiment results of web-Google, these three steps can definitely meet your need. <br>
 
 	Step 1: cd ./solutions_for_comparison
 
@@ -47,7 +45,7 @@ But if you only want to have a try, these three steps can definitely meet your n
 	(b)     ./run_comparison.sh ../dataset/web-Google.mtx  | grep 'SpMV Execution'  // get the SpMV execution time. 
 	(c)     ./run_comparison.sh ../dataset/web-Google.mtx  | grep 'Throughput'      // get the Throughput(GFlops).
 
-We will elaborate how to use each format/solution, so that you can change the parameters to fullfill your own requirement.
+We will elaborate how to use each format/solution, so that you can change the configuration to fullfill your own requirements.
 ### CSR5
 	numactl --membind=1 ./bin/spmv.csr5 [filepath] [numThreads] [numIterations]
 
