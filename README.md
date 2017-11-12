@@ -77,8 +77,8 @@ Dependency:  Vtune
 		
 	Step 2: ./build.sh                 // If it has not been built yet
 
-	Step 3: ./run_locality.sh [filenpath] [nT_CVR] [nT_CSR5] [nT_VHCC] [nPanels] [nT_CSRI] [nT_ESB] [schedule_ESB] [nT_MKL]
-	        ./run_locality.sh ../dataset/web-Google.mtx 68 204 272 1 272 272 1
+	Step 3: ./run_locality.sh [filepath][nT_CVR][nT_CSR5][nT_VHCC][nPanels][nT_CSRI][nT_ESB][schedule_ESB][nT_MKL]
+	        ./run_locality.sh ../dataset/web-Google.mtx 68 204 272 1 272 272 1 272
 
 	Note that 'nT' stands for numThreads, while nPanels stands for numPanels of VHCC.
 
