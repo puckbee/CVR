@@ -10,8 +10,8 @@ CVR can be built simply with 'make', while the resulted binariy file is 'spmv.cv
 # Dataset Preparation and Execution
 Our implementation of CVR supports sparse matrices with matrix market format, which is one of the default formats in SuiteSparse Matrix Collection. Most of the data sets used in our paper can be found in either of these two collections:
 
-	1) [SuiteSparse Matrix Collection](https://sparse.tamu.edu) (formerly the University of Florida Sparse Matrix Collection).
-	2) [Stanford Large Network Dataset Collection](http://snap.stanford.edu/data/) (SNAP).
+1) [SuiteSparse Matrix Collection](https://sparse.tamu.edu) (formerly the University of Florida Sparse Matrix Collection).
+2) [Stanford Large Network Dataset Collection](http://snap.stanford.edu/data/) (SNAP).
 
 Here, we use web-Google for example to show how to use CVR:
 
@@ -20,9 +20,9 @@ Here, we use web-Google for example to show how to use CVR:
 The CVR accepts three parameters: file path; Number of Threads; Number of Iterations. <br>
 In run_sample.sh, there is a command like this:
 
-	numactl --membind=1 ./spmv.cvr [filepath] [numThreads] [numIterations]
+numactl --membind=1 ./spmv.cvr [filepath] [numThreads] [numIterations]
 
-	Sample: numactl --membind=1 ./spmv.cvr dataset/web-Google.mtx 68 1000
+Sample: numactl --membind=1 ./spmv.cvr dataset/web-Google.mtx 68 1000
 
 CVR will print two times in seconds: [Pre-processing time] and [SpMV Execution time]. <br>
 [Pre-processing time] is the time of converting a sparse matrix with CSR format to CVR format. <br>
@@ -47,15 +47,15 @@ But if you just want to have a reproduce the experiment results of web-Google, t
 
 We will elaborate how to use each format/solution, so that you can change the configuration to fullfill your own requirements.
 ### CSR5
-	numactl --membind=1 ./bin/spmv.csr5 [filepath] [numThreads] [numIterations]
+numactl --membind=1 ./bin/spmv.csr5 [filepath] [numThreads] [numIterations]
 
-	Sample: numactl --membind=1 ./spmv.csr5 ../dataset/web-Google.mtx 204 1000
+Sample: numactl --membind=1 ./spmv.csr5 ../dataset/web-Google.mtx 204 1000
 ### VHCC
 VHCC has many parameters. Since the width and height of blocks is pretty fixed to be (512,8192), we only provide the number of panels here.
 
-	numactl --membind=1 ./bin/spmv.vhcc [filepath] [numThreads] [numIterations] [numPanels]
+numactl --membind=1 ./bin/spmv.vhcc [filepath] [numThreads] [numIterations] [numPanels]
 		
-	Sample: numactl --membind=1 ./spmv.vhcc ../dataset/web-Google.mtx 272 1000 1
+Sample: numactl --membind=1 ./spmv.vhcc ../dataset/web-Google.mtx 272 1000 1
 ### CSR-I
 	numactl --membind=1 ./bin/spmv.csr [filepath] [numThreads] [numIterations]
 	
