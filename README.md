@@ -6,28 +6,37 @@ This is the artifact of our CGO'2018 paper [ CVR: Efficient SpMV Vectorization o
 
 CVR can be built simply with 'make', while the resulted binariy file is 'spmv.cvr'.
 
-Step: make
+Step 1: make
 
-# Data set Preparation
+# Data set Preparation and Execution
 Our implementation of CVR supports sparse matrices with matrix market format, which is one of the default formats in SuiteSparse Matrix Collection (formerly the University of Florida Sparse Matrix Collection). Most of the data sets used in our paper can be found in this collection. We take web-Google for an example to demonstrate the data set preparation.
 
-Step 1: wget https://sparse.tamu.edu/MM/SNAP/web-Google.tar.gz   [Note that we use the Matrix Market format]
+Here, we use web-Google for example to show how to use CVR:
 
-Step 2: tar xvf web-Google.tar.gz
+step 1: ./run_sample.sh
 
-Then we get our sample data set: web-Google.mtx.
+The CVR accepts three parameters: file path; Number of Threads; Number of Iterations.
+In run_sample.sh, there is a command like this:
 
-# Execution
-
-Our CVR code accepts three parameters: file path; Number of Threads; Number of Iterations.
-
-Step: numactl --membind=1 ./spmv.cvr web-Google/web-Google.mtx 272 1000
+numactl --membind=1 ./spmv.cvr dataset/web-Google.mtx 68 1000
 
 It means CVR reads a sparse matrix from "web-Google/web-Google.mtx" and execute SpMV with 272 threads for 1000 iterations. 
 
-CVR will print two times in seconds: [pre-processing time] and [SpMV execution time].
-[pre-processing time] is the time of converting a sparse matrix with CSR format to CVR format.
-[SpMV execution time] is the average time of running 1000 iterations of SpMV with CVR format. Note that 1000 can be changed by changing "Number of Iterations"
+CVR will print two times in seconds: [Pre-processing time] and [SpMV Execution time].
+[Pre-processing time] is the time of converting a sparse matrix with CSR format to CVR format.
+[SpMV Execution time] is the average time of running 1000 iterations of SpMV with CVR format. Note that 1000 can be changed by changing "Number of Iterations"
+
+# Compare CVR with other formats/solutions
+
+Step 1: cd ./solutions_for_comparison
+
+Step 2: ./build.sh        // build all formats/ solutions
+
+Step 3: ./run_comparison.sh     // run all formats/solutions
+(a)     ./run_comparison.sh | grep 'Pre-processing'      // get the Pre-processing time.
+(b)     ./run_comparison.sh | grep 'SpMV Execution'      // get the SpMV execution time.
+(c)     ./run_comparison.sh | grep 'Throughput'          // get the Throughput(GFlops).
+
 
 # Cache Performance Profiling (Additional)
 
