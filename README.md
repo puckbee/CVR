@@ -61,7 +61,8 @@ VHCC has many parameters. Since the width and height of blocks is pretty fixed t
 	
 **Sample: numactl --membind=1 ./spmv.csr ../dataset/web-Google.mtx 272 1000**
 ### ESB
-ESB has diffent schedule policies: static and dynamic. 1 for static; 2 for dynamic; 3 for both two.
+ESB has diffent schedule policies: static and dynamic. 1 for static; 2 for dynamic; 3 for both two.<br>
+
 **numactl --membind=1 ./bin/spmv.esb [filepath] [numThreads] [numIterations] [schedule_policy]**
 
 **Sample: numactl --membind=1 ./spmv.esb ../dataset/web-Google.mtx 272 1000 3**
