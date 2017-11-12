@@ -22,7 +22,7 @@ In run_sample.sh, there is a command like this:
 
 	numactl --membind=1 ./spmv.cvr [filepath] [numThreads] [numIterations]
 
-	numactl --membind=1 ./spmv.cvr dataset/web-Google.mtx 68 1000
+	Sample: numactl --membind=1 ./spmv.cvr dataset/web-Google.mtx 68 1000
 
 CVR will print two times in seconds: [Pre-processing time] and [SpMV Execution time]. <br>
 [Pre-processing time] is the time of converting a sparse matrix with CSR format to CVR format. <br>
@@ -52,6 +52,7 @@ We will elaborate how to use each format/solution, so that you can change the co
 	Sample: numactl --membind=1 ./spmv.csr5 ../dataset/web-Google.mtx 204 1000
 ### VHCC
 VHCC has many parameters. Since the width and height of blocks is pretty fixed to be (512,8192), we only provide the number of panels here.
+
 	numactl --membind=1 ./bin/spmv.vhcc [filepath] [numThreads] [numIterations] [numPanels]
 		
 	Sample: numactl --membind=1 ./spmv.vhcc ../dataset/web-Google.mtx 272 1000 1
