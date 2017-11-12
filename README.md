@@ -42,10 +42,10 @@ But if you only want to have a try, these three steps can definitely meet your n
 
 		Step 2: ./build.sh        // build all formats/ solutions
 
-		Step 3: ./run_comparison.sh ../dataset/web-Google.mtx                               // run all formats/solutions 
-		(a)     ./run_comparison.sh ../dataset/web-Google.mtx  | grep 'Pre-processing'      // get the Pre-processing time. 
-		(b)     ./run_comparison.sh ../dataset/web-Google.mtx  | grep 'SpMV Execution'      // get the SpMV execution time. 
-		(c)     ./run_comparison.sh ../dataset/web-Google.mtx  | grep 'Throughput'          // get the Throughput(GFlops).
+		Step 3: ./run_comparison.sh ../dataset/web-Google.mtx                           // run all formats/solutions 
+		(a)     ./run_comparison.sh ../dataset/web-Google.mtx  | grep 'Pre-processing'  // get the Pre-processing time. 
+		(b)     ./run_comparison.sh ../dataset/web-Google.mtx  | grep 'SpMV Execution'  // get the SpMV execution time. 
+		(c)     ./run_comparison.sh ../dataset/web-Google.mtx  | grep 'Throughput'      // get the Throughput(GFlops).
 
 We will elaborate how to use each format/solution, so that you can change the parameters to fullfill your own requirement.
 ### CSR5
