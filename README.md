@@ -22,20 +22,20 @@ numactl --membind=1 ./spmv.cvr dataset/web-Google.mtx 68 1000
 
 It means CVR reads a sparse matrix from "web-Google/web-Google.mtx" and execute SpMV with 272 threads for 1000 iterations. 
 
-CVR will print two times in seconds: [Pre-processing time] and [SpMV Execution time].
-[Pre-processing time] is the time of converting a sparse matrix with CSR format to CVR format.
-[SpMV Execution time] is the average time of running 1000 iterations of SpMV with CVR format. Note that 1000 can be changed by changing "Number of Iterations"
+		CVR will print two times in seconds: [Pre-processing time] and [SpMV Execution time].
+		[Pre-processing time] is the time of converting a sparse matrix with CSR format to CVR format.
+		[SpMV Execution time] is the average time of running 1000 iterations of SpMV with CVR format. Note that 1000 can be changed by changing "Number of Iterations"
 
 # Compare CVR with other formats/solutions
 
-Step 1: cd ./solutions_for_comparison
+		Step 1: cd ./solutions_for_comparison
 
-Step 2: ./build.sh        // build all formats/ solutions
+		Step 2: ./build.sh        // build all formats/ solutions
 
-Step 3: ./run_comparison.sh     // run all formats/solutions \\
-(a)     ./run_comparison.sh | grep 'Pre-processing'      // get the Pre-processing time. \\
-(b)     ./run_comparison.sh | grep 'SpMV Execution'      // get the SpMV execution time. \\
-(c)     ./run_comparison.sh | grep 'Throughput'          // get the Throughput(GFlops).
+		Step 3: ./run_comparison.sh     // run all formats/solutions 
+		(a)     ./run_comparison.sh | grep 'Pre-processing'      // get the Pre-processing time. 
+		(b)     ./run_comparison.sh | grep 'SpMV Execution'      // get the SpMV execution time. 
+		(c)     ./run_comparison.sh | grep 'Throughput'          // get the Throughput(GFlops).
 
 
 # Cache Performance Profiling (Additional)
