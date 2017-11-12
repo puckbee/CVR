@@ -38,14 +38,14 @@ We tried various threads numbers and parameters for each format/solution and cho
 You can try to setup different threads numbers in run_comparison.sh, we will elaborate how to use these formats later. <br>
 But if you only want to have a try, these three steps can definitely meet your need. <br>
 
-		Step 1: cd ./solutions_for_comparison
+	Step 1: cd ./solutions_for_comparison
 
-		Step 2: ./build.sh        // build all formats/ solutions
+	Step 2: ./build.sh        // build all formats/ solutions
 
-		Step 3: ./run_comparison.sh ../dataset/web-Google.mtx                           // run all formats/solutions 
-		(a)     ./run_comparison.sh ../dataset/web-Google.mtx  | grep 'Pre-processing'  // get the Pre-processing time. 
-		(b)     ./run_comparison.sh ../dataset/web-Google.mtx  | grep 'SpMV Execution'  // get the SpMV execution time. 
-		(c)     ./run_comparison.sh ../dataset/web-Google.mtx  | grep 'Throughput'      // get the Throughput(GFlops).
+	Step 3: ./run_comparison.sh ../dataset/web-Google.mtx                           // run all formats/solutions 
+	(a)     ./run_comparison.sh ../dataset/web-Google.mtx  | grep 'Pre-processing'  // get the Pre-processing time. 
+	(b)     ./run_comparison.sh ../dataset/web-Google.mtx  | grep 'SpMV Execution'  // get the SpMV execution time. 
+	(c)     ./run_comparison.sh ../dataset/web-Google.mtx  | grep 'Throughput'      // get the Throughput(GFlops).
 
 We will elaborate how to use each format/solution, so that you can change the parameters to fullfill your own requirement.
 ### CSR5
