@@ -3,10 +3,9 @@ Parallelized and vectorized SpMV on Intel Xeon Phi (Knights Landing).
 This is the artifact of our CGO'2018 paper [ CVR: Efficient SpMV Vectorization on X86 Processors ].
 
 # Build
-
 CVR can be built simply with 'make', while the resulted binariy file is 'spmv.cvr'.
 
-		Step 1: make
+		Step: make       
 
 # Data set Preparation and Execution
 Our implementation of CVR supports sparse matrices with matrix market format, which is one of the default formats in SuiteSparse Matrix Collection. Most of the data sets used in our paper can be found in either of these two collections:
@@ -30,6 +29,8 @@ CVR will print two times in seconds: [Pre-processing time] and [SpMV Execution t
 [SpMV Execution time] is the average time of running 1000 iterations of SpMV with CVR format. Note that 1000 can be changed by changing "Number of Iterations" <br>
 
 # Compare CVR with other formats/solutions
+MKL,CSR-I and ESB are dependent on MKL. <br>
+Please make sure that MKL is already installed and the environment variable $MKL_ROOT is already set. 
 
 		Step 1: cd ./solutions_for_comparison
 
@@ -42,10 +43,12 @@ CVR will print two times in seconds: [Pre-processing time] and [SpMV Execution t
 
 
 # Cache Performance Profiling (Additional)
+Dependency:  Vtune
 
-The L1 and L2 cache miss ratio can be obtained by running the following command: 
+		Step 1: cd ./solutions_for_comparison
+		
+		Step 2: ./build.sh                 // If it has not been built yet
 
-amplxe-cl -collect-with runsa -knob event-config=MEM_UOPS_RETIRED.L1_MISS_LOADS,MEM_UOPS.RETIRED.ALL_LOADS,MEM_UOPS_RETIRED.L2_HIT_LOADS,MEM_UOPS_RETIRED.L2_MISS_LOADS,MEM_UOPS_RETIRED.ALL_LOADS,MEM_UOPS_RETIRED.ALL_STORES,INST_RETIRED.ANY_P -r ./vtune_result/vtune_cvr/ numactl --membind=1 ./spmv.cvr web-Google/web-Google.mtx 272 1000
+		Step 3: ./run_locality.sh
 
-Note that the L2 cache miss ratio should be calculated using the data of function "spmv_compute_kernel" instead of the whole program.
 
