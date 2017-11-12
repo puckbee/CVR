@@ -32,9 +32,9 @@ Step 1: cd ./solutions_for_comparison
 
 Step 2: ./build.sh        // build all formats/ solutions
 
-Step 3: ./run_comparison.sh     // run all formats/solutions
-(a)     ./run_comparison.sh | grep 'Pre-processing'      // get the Pre-processing time.
-(b)     ./run_comparison.sh | grep 'SpMV Execution'      // get the SpMV execution time.
+Step 3: ./run_comparison.sh     // run all formats/solutions \\
+(a)     ./run_comparison.sh | grep 'Pre-processing'      // get the Pre-processing time. \\
+(b)     ./run_comparison.sh | grep 'SpMV Execution'      // get the SpMV execution time. \\
 (c)     ./run_comparison.sh | grep 'Throughput'          // get the Throughput(GFlops).
 
 
