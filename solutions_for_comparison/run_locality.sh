@@ -2,6 +2,12 @@
 
 #amplxe-cl -collect-with runsa -knob event-config=MEM_UOPS_RETIRED.L1_MISS_LOADS,MEM_UOPS.RETIRED.ALL_LOADS,MEM_UOPS_RETIRED.L2_HIT_LOADS,MEM_UOPS_RETIRED.L2_MISS_LOADS,MEM_UOPS_RETIRED.ALL_LOADS,MEM_UOPS_RETIRED.ALL_STORES ./spmv.ours ../../dataset/amazon -r .
 
+
+#make it clean first
+rm vtune*
+rm results.csv
+
+
 filepath=$1
 
   if [ ! -d "../dataset" ]; then  

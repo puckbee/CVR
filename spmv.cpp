@@ -1677,9 +1677,9 @@ if(ncsr>=0)
 }
 //   std::cout<<" average work time is "<<tt2/Ntimes<<endl;
 //   std::cout<<"The SpMV execution Time of CVR is  "<<filename<<" "<<tt2/Ntimes<<" seconds"<<endl;
-   std::cout<<"The SpMV Execution Time of CVR  is "<<tt2/Ntimes<<" seconds.   [file: "<<filename<<"] [threads: "<<Nthrds<<"]"<<endl;
+   std::cout<<"The SpMV Execution Time of CVR    is "<<tt2/Ntimes<<" seconds.   [file: "<<filename<<"] [threads: "<<Nthrds<<"]"<<endl;
 //   std::cout<<endl;
-   std::cout<<"         The Throughput of CVR  is "<<nItems/(tt2/Ntimes)/1000000/1000<< " GFlops.    [file: "<<filename<<"] [threads: "<<Nthrds<<"]"<<endl;
+   std::cout<<"         The Throughput of CVR    is "<<nItems/(tt2/Ntimes)/1000000/1000<< " GFlops.    [file: "<<filename<<"] [threads: "<<Nthrds<<"]"<<endl;
     std::cout<<endl;
   std::cout<<"==========================================================================="<<endl;
 }

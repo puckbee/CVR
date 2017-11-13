@@ -537,9 +537,9 @@ int main(int argc, char *argv[])
 
 //        printf(" My time is %f\n", (t2-t1)/MAX_ITER);
 //        printf("VHCC EXE Time %s %f\n", filename, (mytime)/MAX_ITER);
-        printf("The SpMV Execution Time of VHCC is %f seconds.   [file: %s] [threads: %d]  [numPanels: %d]\n", (mytime)/MAX_ITER, filename, num_threads, num_panels);
+        printf("The SpMV Execution Time of VHCC   is %f seconds.   [file: %s] [threads: %d]  [numPanels: %d]\n", (mytime)/MAX_ITER, filename, num_threads, num_panels);
 	elapsed = elapsed / MAX_ITER;
-	printf("         The Throughput of VHCC is %f GFlops.    [file: %s] [threads: %d]  [numPanels: %d]\n", double(nnz)/(mytime/MAX_ITER*1000)/1000000, filename, num_threads, num_panels);
+	printf("         The Throughput of VHCC   is %f GFlops.    [file: %s] [threads: %d]  [numPanels: %d]\n", double(nnz)/(mytime/MAX_ITER*1000)/1000000, filename, num_threads, num_panels);
 
 //	FREE(input);
 	FREE(result);

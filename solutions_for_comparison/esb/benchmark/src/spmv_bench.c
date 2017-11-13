@@ -425,7 +425,7 @@ static int benchmark_MKL_SpMV ( const struct SparseMatrix *csrMatrix,
     time_end = dsecnd();
     time = time_end - time_start;
     // print performance results in GFlops and time per single SpMV call
-    printPerformanceResults( "MKL", mflop, time, niters, -1, filename, numThreads);
+    printPerformanceResults( "MKL  ", mflop, time, niters, -1, filename, numThreads);
 
 //    printf("MKL EXE Time %s %f \n", filename, time/niters);
 
@@ -554,7 +554,7 @@ static int benchmark_CSR_SpMV ( const struct SparseMatrix *csrMatrix,
     time_end = dsecnd();
     time = time_end - time_start;
     // print performance results in GFlops and time per single SpMV call
-    printPerformanceResults( "CSR", mflop, time, niters, schedule, filename, numThreads );
+    printPerformanceResults( "CSR_I", mflop, time, niters, schedule, filename, numThreads );
 //    printf("CSR EXE Time %s %f \n", filename, time/niters);
 
     sparseDestroyCSRMatrix ( csrA );
@@ -685,7 +685,7 @@ static int benchmark_ESB_SpMV ( const struct SparseMatrix *csrMatrix,
     time_end = dsecnd();
     time = time_end - time_start;
     // print performance results in GFlops and time per single SpMV call
-    printPerformanceResults( "ESB", mflop, time, niters, schedule, filename, numThreads );
+    printPerformanceResults( "ESB  ", mflop, time, niters, schedule, filename, numThreads );
 //    printf("ESB EXE Time %s %f \n", filename, time/niters);
 
     sparseDestroyESBMatrix ( esbA );

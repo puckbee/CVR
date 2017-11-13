@@ -146,8 +146,8 @@ int call_anonymouslib(int m, int n, int nnzA,
 //    CSR5Spmv_time, gb/(1.0e+6 * CSR5Spmv_time), gflop/(1.0e+6 * CSR5Spmv_time));
 
 //    printf("CSR5 EXE Time %s  %f s. \n", filename , CSR5Spmv_time/1000) ;
-    printf("The SpMV Execution time of CSR5 is %f seconds.   [file: %s] [threads: %d]\n", CSR5Spmv_time/1000, filename, numThreads);
-    printf("         The Throughput of CSR5 is %f GFlops.    [file: %s] [threads: %d]\n", nnzA/CSR5Spmv_time/1000000, filename, numThreads);
+    printf("The SpMV Execution time of CSR5   is %f seconds.   [file: %s] [threads: %d]\n", CSR5Spmv_time/1000, filename, numThreads);
+    printf("         The Throughput of CSR5   is %f GFlops.    [file: %s] [threads: %d]\n", nnzA/CSR5Spmv_time/1000000, filename, numThreads);
     CSR5Spmv_gflops = gflop/(1.0e+6 * CSR5Spmv_time);
 
     // write results to text (scv) file
