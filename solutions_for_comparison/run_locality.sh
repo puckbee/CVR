@@ -4,8 +4,8 @@
 
 
 #make it clean first
-rm vtune*
-rm results.csv
+rm -rf vtune*
+rm -rf results.csv
 
 
 filepath=$1
