@@ -4,10 +4,10 @@ ICCFLAGS = -O3 -std=c++0x -restrict -D__MIC__
 
 DEFINES = 
 #INCLUDE_DIRS = -I/opt/intel/mkl/include  -I$(HOME)/local/include/poski -I$(HOME)/local/build_oski/include/oski/  -L$(HOME)/local/lib/
-#MKL_ROOT = /opt/intel/compilers_and_libraries_2016.1.150/linux/mkl
-MKL_ROOT = /home/public/intel/mkl
-INCLUDE_DIRS = -I$(MKL_ROOT)/include
-#MKL_DIRS = -L$(MKL_ROOT)/lib/intel64
+#MKLROOT = /opt/intel/compilers_and_libraries_2016.1.150/linux/mkl
+#MKLROOT = /home/public/intel/mkl
+INCLUDE_DIRS = -I$(MKLROOT)/include
+#MKL_DIRS = -L$(MKLROOT)/lib/intel64
 #MKL_LIBS_SEQ = -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm
 #MKL_LIBS_THR = -lmkl_intel_lp64 -lmkl_core -lmkl_intel_thread -lpthread -lm
 #MMIC = -mmic

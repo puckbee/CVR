@@ -11,13 +11,13 @@ make clean;  make
 cd -
 cp ./vhcc/spmv.vhcc ./bin/
 
-echo "========   building mkl,csr_i and esb =========="
-cd ./esb/benchmark
-make clean;  make
-cd -
-cp ./esb/benchmark/spmv.esb ./bin/
-cp ./esb/benchmark/spmv.csr ./bin/
-cp ./esb/benchmark/spmv.mkl ./bin/
+#echo "========   building mkl,csr_i and esb =========="
+#cd ./esb/benchmark
+#make clean;  make
+#cd -
+#cp ./esb/benchmark/spmv.esb ./bin/
+#cp ./esb/benchmark/spmv.csr ./bin/
+#cp ./esb/benchmark/spmv.mkl ./bin/
 
 echo "========   building cvr  ============="
 cd ../
