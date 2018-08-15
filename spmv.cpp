@@ -1938,7 +1938,8 @@ spmv_compute_kernel(Nthrds, N_start,  N_step, vPack_Nblock, vPack_vec_record, vP
       for(int i = 0; i < numRows; i++)
       {
 //          if(refOut[i] != refOut_verify[i])
-          if(getAbs(refOut[i] - refOut_verify[i]) > 0.0001)
+//          if(getAbs(refOut[i] - refOut_verify[i]) > 0.0001)
+              if((getAbs(refOut[i] - refOut_verify[i])*getAbs(refOut[i] - refOut_verify[i])) > 0.000001)
           {
 //            std::cout<<" Error  i = "<< i <<":  refOut = "<< refOut[i]<<";  refOut_verify = "<< refOut_verify[i]<<endl;
             result_verify ++;
