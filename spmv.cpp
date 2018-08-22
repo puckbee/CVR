@@ -82,24 +82,6 @@ struct v_Range{
     int v_end;
 }; 
 
-
-  class CSR_Linker{
-   public:
-      list<FLOAT_TYPE> *vals;
-      list<int> *cidx;
-      list<int> *rptr;
-      
-      int index; 
-      
-      CSR_Linker()
-      {
-         vals = new list<FLOAT_TYPE>();
-         cidx = new list<int>();
-         rptr = new list<int>();
-         index = 0;
-      }
-};
-
 typedef __attribute__((aligned(64))) union zmmd {                     
         __m512d reg;        
         __m512i regi32;      
