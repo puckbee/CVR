@@ -1,10 +1,10 @@
 # 转化率
 
-Parallelized and vectorized SpMV on Intel Xeon Phi (Knights Landing). <br> This is the artifact of our CGO'2018 paper [ CVR: Efficient Vectorization of SpMV on X86 Processors ]. <br> You can find a copy of the paper in this repository named 'CVR-Efficient Vectorization of SpMV on X86 Processors.pdf'
+Intel Xeon Phi (Knights Landing) 上的并行化和矢量化 SpMV。<br>这是我们的 CGO'2018 论文 [CVR: X86 Processors 上 SpMV 的高效矢量化] 的成果。<br>您可以在此存储库中找到该论文的副本，名为“CVR-Efficient Vectorization of SpMV on X86 Processors.pdf”
 
 # 建造
 
-CVR can be built simply with 'make', while the resulted binariy file is 'spmv.cvr'.
+CVR 可以简单地使用“make”构建，而生成的二进制文件是“spmv.cvr”。
 
 ```
 Step: make
